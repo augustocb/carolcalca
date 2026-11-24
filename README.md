@@ -64,3 +64,16 @@ https://carolcalcavecchia.com. Leva cerca de 2 minutos.
 | A | @ | 185.199.108.153 · 185.199.109.153 · 185.199.110.153 · 185.199.111.153 |
 | AAAA | @ | 2606:50c0:8000::153 · 2606:50c0:8001::153 · 2606:50c0:8002::153 · 2606:50c0:8003::153 |
 | CNAME | www | augustocb.github.io |
+
+## Pedidos de impressão
+
+Cada card dos prints tem um botão “solicitar” que abre um formulário (`components/PedidoModal.tsx`).
+O formulário envia para um **Cloudflare Worker** (`servidor/`), que manda o e-mail pelo **Resend**
+para `PEDIDO_PARA`, com “responder para” o e-mail do cliente.
+
+- Configuração do Worker: `servidor/wrangler.toml` (destinatário e remetente).
+- Chave do Resend (segredo, fica só na Cloudflare): `npm run pedido:chave`.
+- Publicar o Worker: `npm run pedido:publicar` (precisa de `npx wrangler login` uma vez).
+- Testar no Mac: `npm run pedido:local` e o site com `NEXT_PUBLIC_PEDIDO_URL=http://localhost:8787` (no `.env.local`).
+- O site lê o endereço do Worker da variável `PEDIDO_URL` do GitHub (Settings → Secrets and variables → Actions).
+- O remetente precisa ser de um domínio verificado no Resend (registros de DNS no GoDaddy).

@@ -1,0 +1,13 @@
+# Cloudflare Worker dos pedidos de impressão.
+# Publicar:  npm run pedido:publicar   (depois de "npx wrangler login" uma vez)
+# A chave do Resend é um segredo:  npm run pedido:chave
+name = "carolcalca-pedido"
+main = "worker.ts"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+[vars]
+# quem recebe os pedidos
+PEDIDO_PARA = "carolina.calcavecchia@gmail.com"
+# remetente: precisa ser de um domínio verificado no Resend
+PEDIDO_DE = "Site Carol Calcavecchia <pedidos@carolcalcavecchia.com>"

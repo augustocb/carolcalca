@@ -5,6 +5,7 @@
 # Precisa, nas configurações do repositório (Settings → Secrets and variables → Actions):
 #   - variável  TINA_CLIENT_ID  (Client ID do projeto no Tina Cloud)
 #   - segredo   TINA_TOKEN      (token de leitura do projeto no Tina Cloud)
+#   - variável  PEDIDO_URL      (endereço do Cloudflare Worker dos pedidos de impressão)
 name: Publicar site
 
 on:
@@ -26,6 +27,7 @@ jobs:
       NEXT_PUBLIC_TINA_CLIENT_ID: ${{ vars.TINA_CLIENT_ID }}
       TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
       GITHUB_BRANCH: tina-cms
+      NEXT_PUBLIC_PEDIDO_URL: ${{ vars.PEDIDO_URL }}
       # domínio próprio: o site fica na raiz, sem subcaminho
       NEXT_PUBLIC_BASE_PATH: ""
     steps:

@@ -4,3 +4,7 @@ node_modules/
 out/
 tina/__generated__/
 .env
+.env*.local
+.wrangler/
+*.tsbuildinfo
+.dev.vars
