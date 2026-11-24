@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>prints — Carol Calcavecchia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo">Carol<b>Calcavecchia</b></a>
+    <nav>
+      <ul class="menu">
+        <li><a href="prints.html" aria-current="page">prints</a></li>
+        <li><a href="reels.html">reels</a></li>
+        <li><a href="contato.html">contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="prints">
+      <figure class="w8">
+        <img src="images/prints/01.jpg" alt="Cachoeira sobre paredão de pedra">
+        <div class="price" onclick="event.stopPropagation()">
+          <div class="size">a4</div>
+          <dl>
+            <dt class="head">impressão</dt><dd hidden></dd>
+            <dt>fotográfica</dt><dd>R$ 120</dd>
+            <dt>fine art</dt><dd>R$ 200</dd>
+            <dt>moldura</dt><dd>+ R$ 120</dd>
+          </dl>
+        </div>
+      </figure>
+
+      <figure class="w6"><img src="images/prints/02.jpg" alt="Muro com a frase “nem todos tem um preço”"></figure>
+      <div class="w2 dot"></div>
+
+      <figure class="w4"><img src="images/prints/03.jpg" alt="Galhos e cerca sob céu nublado"></figure>
+      <figure class="w4"><img src="images/prints/04.jpg" alt="Árvore curvada pelo vento"></figure>
+
+      <div class="w2 dot"></div>
+      <figure class="w6"><img src="images/prints/05.jpg" alt="Ondas sobre recifes"></figure>
+
+      <figure class="w5"><img src="images/prints/06.jpg" alt="Mãos sobre folhagem"></figure>
+      <div class="w3 dot"></div>
+
+      <figure class="w4"><img src="images/prints/07.jpg" alt="Pedras no mar"></figure>
+      <figure class="w4"><img src="images/prints/08.jpg" alt="Tronco de palmeira na areia"></figure>
+
+      <figure class="w8"><img src="images/prints/09.jpg" alt="Árvore seca contra o céu"></figure>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true"><img alt=""></div>
+
+  <script>
+    const lb = document.getElementById('lightbox');
+    const lbImg = lb.querySelector('img');
+    document.querySelectorAll('.prints figure').forEach(fig => {
+      fig.addEventListener('click', () => {
+        const img = fig.querySelector('img');
+        lbImg.src = img.src; lbImg.alt = img.alt;
+        lb.classList.add('open');
+      });
+    });
+    const close = () => lb.classList.remove('open');
+    lb.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  </script>
+</body>
+</html>

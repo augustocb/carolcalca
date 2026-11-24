@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>reels — Carol Calcavecchia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo">Carol<b>Calcavecchia</b></a>
+    <nav>
+      <ul class="menu">
+        <li><a href="prints.html">prints</a></li>
+        <li><a href="reels.html" aria-current="page">reels</a></li>
+        <li><a href="contato.html">contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="reels">
+      <button class="arrow prev" aria-label="anterior">
+        <svg viewBox="0 0 18 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 2 2 16l14 14"/></svg>
+      </button>
+
+      <div class="stage">
+        <div class="reel-frame" id="frame"></div>
+        <div class="reel-meta">
+          <span id="caption"></span>
+          <span id="counter"></span>
+        </div>
+      </div>
+
+      <button class="arrow next" aria-label="próximo">
+        <svg viewBox="0 0 18 32" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 2 14 14L2 30"/></svg>
+      </button>
+    </section>
+  </main>
+
+  <script>
+    /*
+     * Lista de reels. Para cada vídeo, preencha:
+     *   embed: link de embed do YouTube/Vimeo (ex: "https://player.vimeo.com/video/123456")
+     *          ou caminho de um arquivo .mp4 (ex: "videos/reel1.mp4")
+     *   caption: descrição exibida abaixo do vídeo
+     */
+    const REELS = [
+      { embed: "", caption: "demo reel description" },
+      { embed: "", caption: "reel 2" },
+      { embed: "", caption: "reel 3" },
+      { embed: "", caption: "reel 4" },
+      { embed: "", caption: "reel 5" },
+    ];
+
+    const frame = document.getElementById('frame');
+    const caption = document.getElementById('caption');
+    const counter = document.getElementById('counter');
+    let i = 0;
+
+    function render() {
+      const r = REELS[i];
+      frame.innerHTML = '';
+      if (!r.embed) {
+        frame.innerHTML = '<div class="empty">vídeo em breve</div>';
+      } else if (/\.(mp4|webm|mov)$/i.test(r.embed)) {
+        const v = document.createElement('video');
+        v.src = r.embed; v.controls = true; v.playsInline = true;
+        frame.appendChild(v);
+      } else {
+        const f = document.createElement('iframe');
+        f.src = r.embed;
+        f.allow = 'autoplay; fullscreen; picture-in-picture';
+        f.allowFullscreen = true;
+        frame.appendChild(f);
+      }
+      caption.textContent = r.caption;
+      counter.textContent = `${i + 1}/${REELS.length}`;
+    }
+
+    const go = d => { i = (i + d + REELS.length) % REELS.length; render(); };
+    document.querySelector('.prev').onclick = () => go(-1);
+    document.querySelector('.next').onclick = () => go(1);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') go(-1);
+      if (e.key === 'ArrowRight') go(1);
+    });
+    render();
+  </script>
+</body>
+</html>
