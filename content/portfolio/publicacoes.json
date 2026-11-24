@@ -1,0 +1,28 @@
+{
+  "titulo": "Participação em publicações",
+  "menu": "publicações",
+  "ordem": 6,
+  "blocos": [
+    {
+      "_template": "livros",
+      "itens": [
+        {
+          "titulo": "O filho do presidente",
+          "capa": "/images/portfolio/publicacao-o-filho-do-presidente.jpg",
+          "capaAlt": "Capa do livro O filho do presidente, de Ricardo Cabral",
+          "descricao": "Assina todas as fotos do livro de Ricardo Cabral, publicado pela Edições Cândido.",
+          "link": "https://www.edicoescandido.com/artes/teatro/o-filho-do-presidente",
+          "linkTexto": "conheça o livro"
+        },
+        {
+          "titulo": "Mobilidade (inter)urbana-performativa",
+          "capa": "/images/portfolio/publicacao-mobilidade.jpg",
+          "capaAlt": "Capa do livro Mobilidade (inter)urbana-performativa, de Elilson",
+          "descricao": "Assina fotos do livro do artista [Elilson](https://galeriavermelho.com.br/artistas/elilson/).",
+          "link": "https://www.premiopipa.com/wp-content/uploads/2021/05/Livro-Mobilidade-interurbana-performativa.-2019-224-p.-Projeto-gr%C3%A1fico-Tatiana-Podlubny-Elilson.pdf",
+          "linkTexto": "leia o livro"
+        }
+      ]
+    }
+  ]
+}

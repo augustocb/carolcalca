@@ -1,0 +1,42 @@
+{
+  "titulo": "Filmes",
+  "menu": "filmes",
+  "ordem": 1,
+  "blocos": [
+    {
+      "_template": "filmes",
+      "itens": [
+        {
+          "titulo": "Emaranhada",
+          "ano": "2023",
+          "descricao": "Diretora, diretora de fotografia e editora do filme, criado junto com o Teatro Caminho, com o apoio do Edital Retomada Cultura RJ2.\n\nEmaranhada nasce do encontro entre um grupo de artistas de teatro com uma cooperativa de catadoras de lixo e com uma ONG que atua na conservação de manguezais, a partir da proposta de partilhar entre si seus trabalhos e modos de fazer.",
+          "video": "https://www.youtube.com/watch?v=VUtIDLclv44"
+        },
+        {
+          "titulo": "Chama das Histórias, o Brasil contado por mulheres",
+          "ano": "2023",
+          "descricao": "Diretora de fotografia e editora do filme, dirigido pelos artistas Camila Costa e Ricardo Gadelha, com o apoio do Edital Retomada Cultura RJ2.\n\nO filme mostra o processo de criação do livro, de mesmo nome, que reúne histórias de tradição oral, colocadas em escrita por mulheres contadoras de história.",
+          "video": "https://www.youtube.com/watch?v=XmMsedIFJfM"
+        },
+        {
+          "titulo": "AMAZONA.doc",
+          "ano": "2021",
+          "descricao": "Diretora e diretora de fotografia do filme, criado junto com o Teatro Caminho, a partir da Lei Aldir Blanc.\n\nAMAZONA.doc revela o processo de criação do espetáculo de rua Amazona, do Teatro Caminho, percorrendo desde a estreia em 2018 até a volta às ruas em 2021.",
+          "video": "https://www.youtube.com/watch?v=LXOmH29mprs"
+        },
+        {
+          "titulo": "Máquina Paranóica",
+          "ano": "2015",
+          "descricao": "Diretora de fotografia do curta experimental, dirigido por Janaína Castro Alves.",
+          "video": "https://vimeo.com/332230026"
+        },
+        {
+          "titulo": "Operários do Samba",
+          "ano": "2014",
+          "descricao": "Diretora do curta documental que conta a história da roda de samba do Buraco do Galo, em Oswaldo Cruz, bairro da zona norte do Rio de Janeiro.",
+          "video": "https://vimeo.com/126454991"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "titulo": "Exposições",
+  "menu": "exposições",
+  "ordem": 5,
+  "blocos": [
+    {
+      "_template": "texto",
+      "corpo": "Em 2024, participou da exposição coletiva Enternecer, com curadoria de Bia Rodrigues e Soraya Albuquerque, no espaço cultural [Casa 264](https://www.instagram.com/suacasa264/).\n\nJunto à performer Mar Mendes, cocriou o trabalho Cordão Umbilical, que integrou a exposição Conjunção, no Centro de Artes Hélio Oiticica.\n\nCom a Coletiva Era, elaborou a exposição Origem, para o Festival WOW Mulheres do Mundo.\n\nEm 2018 participou de exposição coletiva da ONG Artigo 19, sobre as chamadas Jornadas de Junho de 2013. A exposição aconteceu no Rio de Janeiro e em São Paulo."
+    },
+    {
+      "_template": "galeria",
+      "titulo": "",
+      "ancora": "",
+      "arranjo": "destaque",
+      "fotos": [
+        {
+          "imagem": "/images/portfolio/exposicao-cordao-umbilical.jpg",
+          "alt": "Cordão Umbilical, obra criada com a performer Mar Mendes",
+          "legenda": "“Cordão Umbilical”, obra criada com a performer Mar Mendes"
+        }
+      ],
+      "legenda": ""
+    },
+    {
+      "_template": "galeria",
+      "titulo": "",
+      "ancora": "",
+      "arranjo": "jornadas",
+      "fotos": [
+        {
+          "imagem": "/images/portfolio/exposicao-jornadas-1.jpg",
+          "alt": "Jornadas de Junho, foto 1 de 3",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/exposicao-jornadas-2.jpg",
+          "alt": "Jornadas de Junho, foto 2 de 3",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/exposicao-jornadas-3.jpg",
+          "alt": "Jornadas de Junho, foto 3 de 3",
+          "legenda": ""
+        }
+      ],
+      "legenda": "Algumas das fotos participantes da exposição sobre as Jornadas de Junho, organizada pela ONG Artigo 19."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "titulo": "Participação em feiras",
+  "menu": "feiras",
+  "ordem": 7,
+  "blocos": [
+    {
+      "_template": "texto",
+      "corpo": "Participou da terceira e da quarta edição da [DELÍCIA impressa](https://www.instagram.com/deliciaimpressa/) e da quarta edição da [feira mão](https://www.instagram.com/_feiramao/), com prints em fine art e risografia de suas obras."
+    },
+    {
+      "_template": "galeria",
+      "titulo": "",
+      "ancora": "",
+      "arranjo": "feiras",
+      "fotos": [
+        {
+          "imagem": "/images/portfolio/feira-1.jpg",
+          "alt": "Estande com prints em uma feira de publicações",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/feira-2.jpg",
+          "alt": "Carolina Calcavecchia em seu estande de prints",
+          "legenda": ""
+        }
+      ],
+      "legenda": ""
+    }
+  ]
+}

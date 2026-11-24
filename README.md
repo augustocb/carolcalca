@@ -1,18 +1,48 @@
 # Carol Calcavecchia — site
 
-Site estático (HTML + CSS + JS puro, sem build). Abra `index.html` no navegador ou publique a pasta em qualquer hospedagem estática (GitHub Pages, Netlify, Vercel).
+Site em **Next.js** (gerado como site estático) com o **TinaCMS** para editar o conteúdo
+clicando na própria página. Branch de teste: `tina-cms`.
 
-## Páginas
-- `index.html` — capa com foto em P&B, nome e menu
-- `prints.html` — grade de fotos com tabela de preços e lightbox (clique para ampliar, Esc fecha)
-- Portfolio, uma página por área, com menu lateral entre elas (fotos em `images/portfolio/`):
-  - `portfolio.html` — filmes (é a página que o menu principal abre)
-  - `portfolio-fotografia.html` — fotografia, com as 6 galerias
-  - `portfolio-filmmaker.html`, `portfolio-logger.html`, `portfolio-exposicoes.html`, `portfolio-publicacoes.html`, `portfolio-feiras.html`
-- `sobre.html` — sobre: bio, retrato, e-mail e Instagram
+## Como rodar e editar
 
-## Como trocar o conteúdo
-- **Foto da capa:** substitua `images/hero.webp` (ela é convertida para P&B automaticamente).
-- **Prints:** substitua `images/prints/01.webp` … `09.webp` (fotos em .webp, até 1600px no lado maior).
-- **Portfolio:** o conteúdo de cada área está direto na sua página. O menu lateral e a navegação anterior/próxima se repetem em todas: ao criar ou renomear uma área, atualize os sete arquivos.
-- **Instagram:** troque o link em `sobre.html`.
+```bash
+npm install
+npm run dev
+```
+
+- Site: http://localhost:3000
+- Painel de edição: http://localhost:3000/admin/index.html — clique em “Enter Edit Mode”,
+  escolha a página e clique em qualquer parte com contorno tracejado para editar.
+  Em modo local, salvar grava direto nos arquivos de `content/`.
+
+Para gerar o site estático em `out/`:
+
+```bash
+npm run build
+```
+
+> Se o build reclamar de dados antigos, apague a pasta `.next` e rode de novo.
+
+## Onde fica cada coisa
+
+| O quê | Onde |
+|---|---|
+| Conteúdo editável (textos, preços, fotos de cada página) | `content/` (JSON) |
+| O que aparece no painel e como | `tina/config.ts` |
+| Páginas | `app/` (capa, `prints`, `sobre`, `portfolio`, `[area]` = `portfolio-*`) |
+| Componentes (cards, galerias, menu lateral…) | `components/` |
+| Visual e animações | `public/css/style.css`, `public/js/topbar.js`, `public/js/transicao.js` |
+| Fotos | `public/images/` (fotos enviadas pelo painel vão para cá) |
+
+- Os textos com formatação (bio, descrições) ficam em Markdown dentro dos JSON.
+- O preço da moldura é um campo próprio e aparece no card como acréscimo (+ R$).
+- Cada arquivo em `content/portfolio/` vira uma página (`filmes` → `portfolio`, os demais → `portfolio-<nome>`);
+  o campo `ordem` define a posição no menu lateral.
+- Os links internos não têm `.html` (ex.: `prints`); o GitHub Pages abre `prints.html` sozinho.
+
+## Publicar
+
+Ainda não configurado para esta branch. Para a Carol editar pela internet, o painel precisa
+do **Tina Cloud** (gratuito até 2 usuários): criar a conta, conectar o repositório e definir
+`NEXT_PUBLIC_TINA_CLIENT_ID` e `TINA_TOKEN`. O site continua estático; no GitHub Pages ele é
+gerado com `NEXT_PUBLIC_BASE_PATH=/carolcalca` (por estar em `augustocb.github.io/carolcalca`).

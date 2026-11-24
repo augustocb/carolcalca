@@ -1,0 +1,245 @@
+{
+  "titulo": "Fotografia",
+  "menu": "fotografia",
+  "ordem": 2,
+  "blocos": [
+    {
+      "_template": "texto",
+      "corpo": "Trabalha com fotografia profissional desde 2012. Iniciou sua trajetória cobrindo performances, peças e com a fotografia documental. Fotografa campanhas de moda para marcas; produz ensaios artísticos e de família; faz fotos still para projetos audiovisuais, como clipes e filmes; fotografa blocos de rua do carnaval carioca, como o [Bloco Virtual](https://www.facebook.com/media/set/?set=a.2318970294815647&type=3&locale=pt_BR).\n\nAo longo dos anos já cobriu eventos dos mais diversos perfis, sejam institucionais (seminários, congressos), eventos familiares (aniversários, casamentos, batizado), shows ou vernissages e pré-estreias de filmes e festivais de cinema. Tem um extenso trabalho com a fotografia de performances e teatro, especialmente ao lado do Teatro Caminho, tendo feito todas as fotos de divulgação e de cena das peças [Eu vou aparecer bem no meio do seu sonho](https://www.teatrocaminho.com/bemnomeiodoseusonho) (2017), [Amazona](https://www.teatrocaminho.com/amazona) (2018 e 2021), [O filho do presidente](https://www.teatrocaminho.com/ofilhodopresidente) (2020) e as fotos da performance [dança, mercadoria!](https://www.teatrocaminho.com/dancamercadoria), além de participar e cobrir as residências artísticas e oficinas. Colaborou ainda com coletivos de fotografia de rua, na cobertura de diversas manifestações."
+    },
+    {
+      "_template": "galeria",
+      "titulo": "Campanhas de moda",
+      "ancora": "moda",
+      "arranjo": "colunas",
+      "fotos": [
+        {
+          "imagem": "/images/portfolio/moda-01.jpg",
+          "alt": "Campanhas de moda, foto 1 de 8",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/moda-02.jpg",
+          "alt": "Campanhas de moda, foto 2 de 8",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/moda-03.jpg",
+          "alt": "Campanhas de moda, foto 3 de 8",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/moda-04.jpg",
+          "alt": "Campanhas de moda, foto 4 de 8",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/moda-05.jpg",
+          "alt": "Campanhas de moda, foto 5 de 8",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/moda-06.jpg",
+          "alt": "Campanhas de moda, foto 6 de 8",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/moda-07.jpg",
+          "alt": "Campanhas de moda, foto 7 de 8",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/moda-08.jpg",
+          "alt": "Campanhas de moda, foto 8 de 8",
+          "legenda": ""
+        }
+      ],
+      "legenda": ""
+    },
+    {
+      "_template": "galeria",
+      "titulo": "Eventos",
+      "ancora": "eventos",
+      "arranjo": "colunas",
+      "fotos": [
+        {
+          "imagem": "/images/portfolio/eventos-01.jpg",
+          "alt": "Eventos, foto 1 de 9",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/eventos-02.jpg",
+          "alt": "Eventos, foto 2 de 9",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/eventos-03.jpg",
+          "alt": "Eventos, foto 3 de 9",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/eventos-04.jpg",
+          "alt": "Eventos, foto 4 de 9",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/eventos-05.jpg",
+          "alt": "Eventos, foto 5 de 9",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/eventos-06.jpg",
+          "alt": "Eventos, foto 6 de 9",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/eventos-07.jpg",
+          "alt": "Eventos, foto 7 de 9",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/eventos-08.jpg",
+          "alt": "Eventos, foto 8 de 9",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/eventos-09.jpg",
+          "alt": "Eventos, foto 9 de 9",
+          "legenda": ""
+        }
+      ],
+      "legenda": ""
+    },
+    {
+      "_template": "galeria",
+      "titulo": "Still para clipes e filmes",
+      "ancora": "still",
+      "arranjo": "colunas",
+      "fotos": [
+        {
+          "imagem": "/images/portfolio/still-01.jpg",
+          "alt": "Still para clipes e filmes, foto 1 de 6",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/still-02.jpg",
+          "alt": "Still para clipes e filmes, foto 2 de 6",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/still-03.jpg",
+          "alt": "Still para clipes e filmes, foto 3 de 6",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/still-04.jpg",
+          "alt": "Still para clipes e filmes, foto 4 de 6",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/still-05.jpg",
+          "alt": "Still para clipes e filmes, foto 5 de 6",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/still-06.jpg",
+          "alt": "Still para clipes e filmes, foto 6 de 6",
+          "legenda": ""
+        }
+      ],
+      "legenda": ""
+    },
+    {
+      "_template": "galeria",
+      "titulo": "Performances e teatro",
+      "ancora": "performances",
+      "arranjo": "colunas",
+      "fotos": [
+        {
+          "imagem": "/images/portfolio/performances-05.jpg",
+          "alt": "Performances e teatro, foto 5 de 6",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/performances-01.jpg",
+          "alt": "Performances e teatro, foto 1 de 6",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/performances-02.jpg",
+          "alt": "Performances e teatro, foto 2 de 6",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/performances-03.jpg",
+          "alt": "Performances e teatro, foto 3 de 6",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/performances-04.jpg",
+          "alt": "Performances e teatro, foto 4 de 6",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/performances-06.jpg",
+          "alt": "Performances e teatro, foto 6 de 6",
+          "legenda": ""
+        }
+      ],
+      "legenda": ""
+    },
+    {
+      "_template": "galeria",
+      "titulo": "Retratos",
+      "ancora": "retratos",
+      "arranjo": "retratos",
+      "fotos": [
+        {
+          "imagem": "/images/portfolio/retratos-03.jpg",
+          "alt": "Retratos, foto 3 de 4",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/retratos-01.jpg",
+          "alt": "Retratos, foto 1 de 4",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/retratos-02.jpg",
+          "alt": "Retratos, foto 2 de 4",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/retratos-04.jpg",
+          "alt": "Retratos, foto 4 de 4",
+          "legenda": ""
+        }
+      ],
+      "legenda": ""
+    },
+    {
+      "_template": "galeria",
+      "titulo": "Ensaios de família",
+      "ancora": "familia",
+      "arranjo": "familia",
+      "fotos": [
+        {
+          "imagem": "/images/portfolio/familia-02.jpg",
+          "alt": "Ensaios de família, foto 1 de 3",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/familia-01.jpg",
+          "alt": "Ensaios de família, foto 2 de 3",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/familia-03.jpg",
+          "alt": "Ensaios de família, foto 3 de 3",
+          "legenda": ""
+        }
+      ],
+      "legenda": ""
+    }
+  ]
+}

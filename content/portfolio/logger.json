@@ -1,0 +1,40 @@
+{
+  "titulo": "Logger e assistente de edição",
+  "menu": "logger e assistente de edição",
+  "ordem": 4,
+  "blocos": [
+    {
+      "_template": "texto",
+      "corpo": "Trabalhou como logger e operadora de câmera (2021–2022) na [Play9](https://play9.com.br/), trabalhando em videocasts como o [Quem Pode, Pod](https://www.youtube.com/playlist?list=PLkHboZpWkXkrSIuwOqe7GLOrlelOkcSPV), com apresentação de Giovanna Ewbank e Fernanda Paes Leme, para o canal [Gioh](https://www.youtube.com/@gioh), além de trabalhar em projetos dos canais de YouTube da [Prime Video](https://www.youtube.com/@PrimeVideoBR), [Geração R](https://www.youtube.com/@geracaor) e da própria [Play 9](https://www.youtube.com/@play9oficial). Atualmente trabalha como logger em campanhas publicitárias e clipes, sendo o mais recente o clipe da cantora Majur, [Tudo Maré](https://www.youtube.com/watch?v=yvL-rhk6o6w).\n\nTrabalhou também na Play9 como assistente de edição, atendendo aos canais de influenciadores da agência durante a pandemia (2020). Além disso, foi assistente de edição para os reality shows Beleza GG, para o Canal E! (segunda e terceira temporadas) e New Faces, apresentado por Danni Suzuki, também para o Canal E! (primeira e segunda temporadas). Fez a série documental Passaporte Feminino, do canal Lifetime. Ainda como assistente de edição trabalhou nas campanhas políticas para prefeitura de Renata Souza (2020) e Talíria Petrone (2024), ambas candidatas pelo PSOL."
+    },
+    {
+      "_template": "galeria",
+      "titulo": "",
+      "ancora": "",
+      "arranjo": "colunas",
+      "fotos": [
+        {
+          "imagem": "/images/portfolio/logger-1.jpg",
+          "alt": "Arte do videocast Quem Pode, Pod",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/logger-2.jpg",
+          "alt": "Imagem do reality Beleza GG",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/logger-3.jpg",
+          "alt": "Imagem do reality New Faces",
+          "legenda": ""
+        },
+        {
+          "imagem": "/images/portfolio/logger-4.jpg",
+          "alt": "Cena de produção audiovisual",
+          "legenda": ""
+        }
+      ],
+      "legenda": ""
+    }
+  ]
+}
