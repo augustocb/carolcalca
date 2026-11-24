@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- CC: o primeiro C leve e o segundo em negrito, como no logo (CAROL / CALCAVECCHIA);
+       o segundo é um pouco maior por fora para compensar a impressão de que o negrito encolhe -->
+  <rect width="64" height="64" rx="12" fill="#fff"/>
+  <g fill="none" stroke="#1a1a1a" stroke-linecap="butt">
+    <path d="M27.27 23.45 A11.50 11.50 0 1 0 27.27 40.55" stroke-width="3"/>
+    <path d="M54.43 24.05 A10.70 10.70 0 1 0 54.43 39.95" stroke-width="6"/>
+  </g>
+</svg>

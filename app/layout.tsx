@@ -8,8 +8,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <head>
-        {/* o site não tem ícone; evita o pedido automático de /favicon.ico */}
-        <link rel="icon" href="data:," />
+        {/* ícone "CC" (o segundo em negrito, como no logo) */}
+        <link rel="icon" href={asset("/favicon.svg")} type="image/svg+xml" />
+        <link rel="icon" href={asset("/favicon.ico")} sizes="16x16 32x32 48x48" />
+        <link rel="apple-touch-icon" href={asset("/apple-touch-icon.png")} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;300;400;600&display=swap" rel="stylesheet" />
