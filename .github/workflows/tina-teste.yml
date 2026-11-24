@@ -36,6 +36,9 @@ jobs:
       - run: npm ci
       - name: Gerar o site (conteúdo lido do Tina Cloud)
         run: npm run build:cloud
+      # o Tina deixa um .gitignore em admin/ que faria a publicação (via git) pular o painel
+      - name: Incluir os arquivos do painel do Tina
+        run: rm -f out/admin/.gitignore
       - name: Publicar em gh-pages/teste-tina
         uses: peaceiris/actions-gh-pages@v4
         with:
