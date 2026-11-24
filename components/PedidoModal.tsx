@@ -37,7 +37,6 @@ export default function PedidoModal({ foto, onClose }: { foto: any; onClose: () 
   async function enviar(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
-    if (f.get("empresa")) { setEstado("enviado"); return; }        // campo-isca: robô preencheu
     setEstado("enviando"); setErro("");
     try {
       if (!ENDPOINT) throw new Error("O envio ainda não está configurado.");
@@ -52,6 +51,8 @@ export default function PedidoModal({ foto, onClose }: { foto: any; onClose: () 
           tipo: temTipo ? f.get("tipo") : "fine art",
           moldura: temMoldura ? f.get("moldura") === "sim" : false,
           mensagem: f.get("mensagem"),
+          // campo-isca: vai junto e o servidor descarta o pedido se vier preenchido
+          verificacao: f.get("hp_x7_verificacao") || "",
         }),
       });
       if (!r.ok) throw new Error((await r.json().catch(() => null))?.erro || "Não foi possível enviar agora.");
@@ -97,8 +98,10 @@ export default function PedidoModal({ foto, onClose }: { foto: any; onClose: () 
 
             <label>Mensagem<textarea name="mensagem" rows={3} defaultValue={MENSAGEM} /></label>
 
-            {/* campo-isca contra robôs: escondido de pessoas, mas robôs costumam preencher */}
-            <input className="pedido-isca" name="empresa" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+            {/* campo-isca contra robôs: escondido de pessoas, mas robôs costumam preencher.
+                O nome não pode lembrar nada que o preenchimento automático do navegador conheça
+                (antes era "empresa", e o Chrome preenchia com a empresa salva, descartando pedidos reais). */}
+            <input className="pedido-isca" name="hp_x7_verificacao" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
             {estado === "erro" && (
               <p className="pedido-erro" role="alert">

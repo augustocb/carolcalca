@@ -45,6 +45,12 @@ export async function tratarPedido(req: Request, env: Env): Promise<Response> {
   let d: any;
   try { d = await req.json(); } catch { return json({ erro: "Pedido inválido." }, 400, h); }
 
+  // campo-isca preenchido = robô: responde "ok" sem enviar, e registra no log para conferência
+  if (texto(d?.verificacao, 200)) {
+    console.log("pedido descartado pelo campo-isca");
+    return json({ ok: true }, 200, h);
+  }
+
   const nome = texto(d?.nome, 120);
   const email = texto(d?.email, 200);
   const telefone = texto(d?.telefone, 40);
@@ -119,5 +125,6 @@ export async function tratarPedido(req: Request, env: Env): Promise<Response> {
     console.error("Resend recusou o envio:", r.status, await r.text().catch(() => ""));
     return json({ erro: "Não foi possível enviar agora." }, 502, h);
   }
+  console.log("pedido enviado:", foto.id, "para", env.PEDIDO_PARA);
   return json({ ok: true }, 200, h);
 }
