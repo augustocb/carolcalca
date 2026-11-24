@@ -1,7 +1,24 @@
 import type { ReactNode } from "react";
 import { asset } from "@/lib/site";
 
-export const metadata = { title: "Carol Calcavecchia — fotógrafa e filmmaker" };
+const titulo = "Carol Calcavecchia — fotógrafa e filmmaker";
+const descricao = "Portfolio e prints de Carolina Calcavecchia, fotógrafa e filmmaker no Rio de Janeiro.";
+
+export const metadata = {
+  metadataBase: new URL("https://carolcalcavecchia.com"),
+  title: titulo,
+  description: descricao,
+  // prévia ao compartilhar o link (WhatsApp, Instagram, Facebook, LinkedIn, X)
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    siteName: "Carol Calcavecchia",
+    title: titulo,
+    description: descricao,
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Carol Calcavecchia — fotógrafa e filmmaker" }],
+  },
+  twitter: { card: "summary_large_image", title: titulo, description: descricao, images: ["/og.jpg"] },
+};
 
 /* suppressHydrationWarning: o topbar.js grava medidas no <html> antes do React assumir a página. */
 export default function RootLayout({ children }: { children: ReactNode }) {
