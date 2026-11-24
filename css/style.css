@@ -297,6 +297,70 @@ main { padding: 0 var(--gutter); }
 .price .strong { font-weight: 600; }
 .price .strong-val { font-weight: 400; }
 
+/* card clicável (abre o pedido) e botão "solicitar": só quando o card está visível */
+.price .pedir { grid-column: span 2; margin-top: 8px; }
+.price .solicitar {
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--ink);
+  border: 0;
+  padding: 5px 12px 4px;
+  cursor: pointer;
+}
+.price .solicitar:hover { opacity: .85; }
+.prints figure:hover .price, .prints figure.show-price .price, .lightbox .price { pointer-events: auto; cursor: pointer; }
+
+/* modal de pedido de impressão */
+.pedido {
+  position: fixed; inset: 0; z-index: 60;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, .9);
+}
+.pedido-caixa {
+  position: relative;
+  width: 100%; max-width: 460px; max-height: calc(100dvh - 40px);
+  overflow: auto;
+  background: var(--bg);
+  border: 1px solid var(--ink);
+  padding: 28px 28px 24px;
+  font-size: 16px;
+}
+.pedido-fechar {
+  position: absolute; top: 8px; right: 12px;
+  border: 0; background: none; cursor: pointer;
+  font: inherit; font-size: 28px; line-height: 1; color: var(--ink);
+}
+.pedido-foto { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; }
+.pedido-foto img { width: 96px; height: 72px; object-fit: cover; flex: none; }
+.pedido-foto h2 { font-size: 20px; font-weight: 600; line-height: 1.1; }
+.pedido-id { font-weight: 400; margin-top: 4px; }
+.pedido-tamanho { color: #666; font-size: 14px; }
+.pedido form { display: flex; flex-direction: column; gap: 14px; }
+.pedido label { display: flex; flex-direction: column; gap: 4px; font-weight: 400; }
+.pedido input:not([type=radio]):not([type=checkbox]), .pedido textarea {
+  font: inherit; font-weight: 300;
+  border: 1px solid #bbb; padding: 8px 10px; border-radius: 0;
+  background: #fff; color: var(--ink);
+}
+.pedido input:focus, .pedido textarea:focus { outline: 2px solid var(--ink); outline-offset: -1px; border-color: var(--ink); }
+.pedido fieldset { border: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.pedido legend { font-weight: 400; margin-bottom: 4px; width: 100%; }
+.pedido .pedido-opcao { flex-direction: row; align-items: center; gap: 8px; font-weight: 300; }
+.pedido textarea { resize: vertical; }
+.pedido-isca { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.pedido-enviar {
+  align-self: flex-start;
+  font: inherit; font-weight: 600;
+  color: #fff; background: var(--ink);
+  border: 0; padding: 10px 22px 9px; cursor: pointer;
+}
+.pedido-enviar:disabled { opacity: .5; cursor: wait; }
+.pedido-ok { font-size: 18px; line-height: 1.4; padding: 8px 0 4px; }
+.pedido-erro { color: #a40000; font-size: 14px; }
+.pedido-erro a { text-decoration: underline; }
+
 /* lightbox */
 .lightbox {
   position: fixed;
