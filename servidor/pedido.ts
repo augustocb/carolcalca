@@ -63,6 +63,11 @@ export async function tratarPedido(req: Request, env: Env): Promise<Response> {
   if (!foto.id) return json({ erro: "Foto não identificada." }, 400, h);
 
   const imagem = /^https?:\/\//.test(foto.imagem) ? foto.imagem : foto.imagem ? SITE + foto.imagem : "";
+  // as fotos do site são WebP grandes (~1 MB), que vários programas de e-mail não mostram;
+  // no e-mail vai uma versão JPG de 600 px, convertida pelo wsrv.nl (serviço público de imagens)
+  const imagemEmail = imagem
+    ? `https://wsrv.nl/?url=${encodeURIComponent(imagem)}&w=600&output=jpg&q=82`
+    : "";
   const nomeFoto = `#${foto.id}${foto.titulo ? ` · ${foto.titulo}` : ""}`;
   const linhas: [string, string][] = [
     ["Foto", nomeFoto],
@@ -78,7 +83,8 @@ export async function tratarPedido(req: Request, env: Env): Promise<Response> {
   const html = `
     <div style="font-family:Helvetica,Arial,sans-serif;font-size:15px;color:#1a1a1a;line-height:1.5">
       <p style="font-size:18px;margin:0 0 12px"><strong>Novo pedido de impressão</strong></p>
-      ${imagem ? `<p><img src="${escapar(imagem)}" alt="" style="max-width:320px;height:auto;display:block"></p>` : ""}
+      ${imagemEmail ? `<p style="margin:0 0 6px"><img src="${escapar(imagemEmail)}" alt="Foto ${escapar(nomeFoto)}" width="480" style="width:100%;max-width:480px;height:auto;display:block;border:0"></p>
+      <p style="margin:0 0 16px;font-size:13px"><a href="${escapar(imagem)}" style="color:#666">ver a foto em tamanho original</a></p>` : ""}
       <table style="border-collapse:collapse">${linhas
         .map(([k, v]) => `<tr><td style="padding:3px 16px 3px 0;color:#666">${k}</td><td style="padding:3px 0">${escapar(v)}</td></tr>`)
         .join("")}</table>
