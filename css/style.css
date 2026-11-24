@@ -94,6 +94,8 @@ img { display: block; max-width: 100%; }
   }
 
   /* capa: "fotógrafa e filmmaker" só aparece depois que título e menu assentam */
+  .pf-nav { view-transition-name: pf-nav; }
+  .page-title { view-transition-name: page-title; }
   .home .tagline { view-transition-name: tagline; }
   ::view-transition-new(tagline) { animation-duration: .6s; animation-delay: 1s; }
   ::view-transition-old(tagline) { animation-duration: .3s; }
@@ -334,7 +336,20 @@ html { scroll-behavior: smooth; }
 
 /* conteúdo */
 .pf-section { scroll-margin-top: calc(var(--bar-h, 46px) + 40px); }
-.pf-section + .pf-section { margin-top: 120px; }
+/* navegação entre as áreas, no fim de cada página */
+.pf-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 96px;
+  padding-top: 24px;
+  border-top: 1px solid #e4e4e4;
+  font-size: 16px;
+  font-weight: 400;
+}
+.pf-pager a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.pf-prev::before { content: "← "; }
+.pf-next::after { content: " →"; }
 .pf-sub { scroll-margin-top: calc(var(--bar-h, 46px) + 40px); margin-top: 64px; }
 .pf h2 { font-size: 28px; font-weight: 600; line-height: 1.1; margin-bottom: 32px; }
 .pf h3 { font-size: 18px; font-weight: 600; line-height: 1.2; margin-bottom: 16px; }
@@ -365,7 +380,13 @@ html { scroll-behavior: smooth; }
 .pf-film-img img { width: 100%; height: auto; }
 .pf-watch { display: inline-block; margin-top: 10px; }
 .pf-watch::after { content: " →"; }
-/* publicações: capas um pouco menores que as imagens dos filmes */
+/* filmes: texto e, logo abaixo, o player do vídeo (YouTube/Vimeo) */
+.pf-film-video { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+.pf-film-video + .pf-film-video { margin-top: 72px; }
+.pf-video { position: relative; aspect-ratio: 16 / 9; background: #000; }
+.pf-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* publicações: capas menores que a coluna de imagem padrão */
 #publicacoes .pf-film { grid-template-columns: 170px minmax(0, 1fr); }
 
 /* galerias: colunas que respeitam o formato de cada foto */
@@ -572,10 +593,11 @@ html { scroll-behavior: smooth; }
   .pf-nav ul ul { display: none; }
   .pf-section, .pf-sub { scroll-margin-top: calc(var(--bar-h, 60px) + 56px); }
   .pf-section:first-of-type { margin-top: 24px; }
-  .pf-section + .pf-section { margin-top: 72px; }
+  .pf-pager { margin-top: 64px; }
   .pf h2 { font-size: 24px; margin-bottom: 20px; }
   .pf-text { font-size: 17px; }
   .pf-film { grid-template-columns: 1fr; gap: 14px; }
+  .pf-film-video + .pf-film-video { margin-top: 48px; }
   .pf-film-img:empty { display: none; }
   #publicacoes .pf-film { grid-template-columns: 1fr; }
   #publicacoes .pf-film-img { max-width: 170px; }

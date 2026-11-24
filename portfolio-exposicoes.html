@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>exposições · portfolio — Carol Calcavecchia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/transicao.js"></script>
+  <script src="js/topbar.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo">Carol<b>Calcavecchia</b></a>
+    <nav id="site-nav">
+      <ul class="menu">
+        <li><a href="portfolio.html" aria-current="page" data-label="portfolio">portfolio</a></li>
+        <li><a href="prints.html" data-label="prints">prints</a></li>
+        <li><a href="sobre.html" data-label="sobre">sobre</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="abrir menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main class="pf">
+    <h1 class="page-title">portfolio</h1>
+    <aside class="pf-nav" aria-label="áreas do portfolio">
+      <ul>
+        <li><a href="portfolio.html">filmes</a></li>
+        <li><a href="portfolio-fotografia.html">fotografia</a>
+          <ul>
+            <li><a href="portfolio-fotografia.html#moda">campanhas de moda</a></li>
+            <li><a href="portfolio-fotografia.html#eventos">eventos</a></li>
+            <li><a href="portfolio-fotografia.html#still">still para clipes e filmes</a></li>
+            <li><a href="portfolio-fotografia.html#performances">performances e teatro</a></li>
+            <li><a href="portfolio-fotografia.html#retratos">retratos</a></li>
+            <li><a href="portfolio-fotografia.html#familia">ensaios de família</a></li>
+          </ul>
+        </li>
+        <li><a href="portfolio-filmmaker.html">filmmaker</a></li>
+        <li><a href="portfolio-logger.html">logger e assistente de edição</a></li>
+        <li><a href="portfolio-exposicoes.html" aria-current="page">exposições</a></li>
+        <li><a href="portfolio-publicacoes.html">publicações</a></li>
+        <li><a href="portfolio-feiras.html">feiras</a></li>
+      </ul>
+    </aside>
+
+    <div class="pf-content">
+      <section class="pf-section" id="exposicoes">
+        <h2>Exposições</h2>
+        <div class="pf-text">
+          <p>Em 2024, participou da exposição coletiva Enternecer, com curadoria de Bia Rodrigues e Soraya Albuquerque, no espaço cultural <a href="https://www.instagram.com/suacasa264/" target="_blank" rel="noopener">Casa 264</a>.</p>
+          <p>Junto à performer Mar Mendes, cocriou o trabalho Cordão Umbilical, que integrou a exposição Conjunção, no Centro de Artes Hélio Oiticica.</p>
+          <p>Com a Coletiva Era, elaborou a exposição Origem, para o Festival WOW Mulheres do Mundo.</p>
+          <p>Em 2018 participou de exposição coletiva da ONG Artigo 19, sobre as chamadas Jornadas de Junho de 2013. A exposição aconteceu no Rio de Janeiro e em São Paulo.</p>
+        </div>
+        <div class="pf-gallery pf-gallery-destaque">
+          <figure><img src="images/portfolio/exposicao-cordao-umbilical.jpg" alt="Cordão Umbilical, obra criada com a performer Mar Mendes" width="1187" height="791" loading="lazy"><figcaption>“Cordão Umbilical”, obra criada com a performer Mar Mendes</figcaption></figure>
+        </div>
+        <div class="pf-gallery pf-gallery-jornadas">
+          <figure><img src="images/portfolio/exposicao-jornadas-1.jpg" alt="Jornadas de Junho, foto 1 de 3" width="1037" height="692" loading="lazy"></figure>
+          <figure><img src="images/portfolio/exposicao-jornadas-2.jpg" alt="Jornadas de Junho, foto 2 de 3" width="991" height="661" loading="lazy"></figure>
+          <figure><img src="images/portfolio/exposicao-jornadas-3.jpg" alt="Jornadas de Junho, foto 3 de 3" width="962" height="641" loading="lazy"></figure>
+          <p class="pf-caption pf-span">Algumas das fotos participantes da exposição sobre as Jornadas de Junho, organizada pela ONG Artigo 19.</p>
+        </div>
+      </section>
+
+      <nav class="pf-pager" aria-label="navegar entre as áreas">
+        <a class="pf-prev" href="portfolio-logger.html">logger e assistente de edição</a>
+        <a class="pf-next" href="portfolio-publicacoes.html">publicações</a>
+      </nav>
+    </div>
+  </main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true"><img alt=""></div>
+  <script src="js/portfolio.js" defer></script>
+</body>
+</html>
