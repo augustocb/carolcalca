@@ -50,9 +50,9 @@ img { display: block; max-width: 100%; }
 
   /* título e itens do menu viajam entre a capa e as páginas internas */
   .logo { view-transition-name: site-logo; }
-  .menu a[href="prints.html"]    { view-transition-name: nav-prints; }
-  .menu a[href="portfolio.html"] { view-transition-name: nav-portfolio; }
-  .menu a[href="sobre.html"]     { view-transition-name: nav-sobre; }
+  .menu a[href="prints"]    { view-transition-name: nav-prints; }
+  .menu a[href="portfolio"] { view-transition-name: nav-portfolio; }
+  .menu a[href="sobre"]     { view-transition-name: nav-sobre; }
 
   /* mola suave (passa ~4% do ponto e assenta); cada peça sai num tempo diferente */
   ::view-transition-group(site-logo),
@@ -127,7 +127,7 @@ img { display: block; max-width: 100%; }
   content: "";
   position: absolute;
   inset: 0;
-  background: url("../images/hero.webp") center / cover no-repeat;
+  background: var(--capa, url("../images/hero.webp")) center / cover no-repeat;   /* foto definida no Tina */
   filter: grayscale(1);
   z-index: 0;
 }
@@ -246,7 +246,6 @@ main { padding: 0 var(--gutter); }
 
 /* observações do catálogo, no começo da página de prints, centralizadas */
 .prints-notas { max-width: 680px; margin: 90px auto 0; text-align: center; font-size: 16px; line-height: 1.5; }
-.prints-notas ul { list-style: none; padding: 0; }
 .prints-notas + .prints { margin-top: 56px; }
 .prints-notas a { font-weight: 400; text-decoration: underline; text-underline-offset: 3px; }
 
