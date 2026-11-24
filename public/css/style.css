@@ -479,6 +479,7 @@ html { scroll-behavior: smooth; }
   font-weight: 400;
   display: flex;
   flex-direction: column;
+  align-items: center;   /* cada link só da largura do texto, não da tela toda */
   gap: 12px;
 }
 .contato a:hover { text-decoration: underline; }
