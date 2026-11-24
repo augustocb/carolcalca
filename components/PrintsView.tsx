@@ -6,11 +6,11 @@ import RichText from "./RichText";
 import Lightbox, { type Zoom } from "./Lightbox";
 import { asset } from "@/lib/site";
 
-/* Card de preço: a moldura aparece como acréscimo e vale para qualquer impressão. */
+/* Card de preço. A linha da moldura só aparece se a foto tiver preço de moldura preenchido. */
 function Card({ foto, retrato }: { foto: any; retrato: boolean }) {
   if (!foto.tipo || foto.tipo === "nenhum") return null;
   const fineArt = foto.fineArt ?? 200;
-  const moldura = foto.moldura ?? 240;
+  const moldura = typeof foto.moldura === "number" && foto.moldura > 0 ? foto.moldura : null;
   return (
     <div className="price">
       <div className={`size${retrato ? " retrato" : ""}`} data-tina-field={tinaField(foto, "tamanho")}>{foto.tamanho}</div>
@@ -19,8 +19,12 @@ function Card({ foto, retrato }: { foto: any; retrato: boolean }) {
         <dt className="head">impressão</dt>
         {foto.tipo !== "fineart" && (<><dt>fotográfica</dt><dd>R$ 120</dd></>)}
         <dt>fine art</dt><dd data-tina-field={tinaField(foto, "fineArt")}>R$ {fineArt}</dd>
-        <dt className="strong">moldura</dt>
-        <dd className="strong-val" data-tina-field={tinaField(foto, "moldura")}>+ R$ {moldura}</dd>
+        {moldura !== null && (
+          <>
+            <dt className="strong">moldura</dt>
+            <dd className="strong-val" data-tina-field={tinaField(foto, "moldura")}>+ R$ {moldura}</dd>
+          </>
+        )}
         {foto.nota && <dt className="note" data-tina-field={tinaField(foto, "nota")}>{foto.nota}</dt>}
       </dl>
     </div>

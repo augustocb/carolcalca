@@ -204,8 +204,8 @@ export default defineConfig({
               {
                 type: "number",
                 name: "moldura",
-                label: "Preço da moldura (R$)",
-                description: "Aparece no card como acréscimo (+ R$), valendo para qualquer impressão.",
+                label: "Preço da moldura (R$) — opcional",
+                description: "Deixe vazio para não mostrar moldura no card. Se preenchido, aparece como acréscimo (+ R$).",
               },
               { type: "string", name: "nota", label: "Observação (opcional)" },
             ],

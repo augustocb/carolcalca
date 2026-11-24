@@ -35,7 +35,7 @@ npm run build
 | Fotos | `public/images/` (fotos enviadas pelo painel vão para cá) |
 
 - Os textos com formatação (bio, descrições) ficam em Markdown dentro dos JSON.
-- O preço da moldura é um campo próprio e aparece no card como acréscimo (+ R$).
+- O preço da moldura é opcional: vazio, o card não mostra moldura; preenchido, aparece como acréscimo (+ R$).
 - Cada arquivo em `content/portfolio/` vira uma página (`filmes` → `portfolio`, os demais → `portfolio-<nome>`);
   o campo `ordem` define a posição no menu lateral.
 - Os links internos não têm `.html` (ex.: `prints`); o GitHub Pages abre `prints.html` sozinho.
