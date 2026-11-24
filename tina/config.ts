@@ -114,7 +114,7 @@ export default defineConfig({
   build: {
     outputFolder: "admin",
     publicFolder: "public",
-    // site servido num subcaminho (ex.: augustocb.github.io/carolcalca/teste-tina)
+    // site servido num subcaminho (augustocb.github.io/carolcalca)
     basePath: (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/^\//, "") || undefined,
   },
   media: { tina: { mediaRoot: "images", publicFolder: "public" } },

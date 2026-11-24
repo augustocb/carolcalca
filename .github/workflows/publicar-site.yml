@@ -1,11 +1,11 @@
-# Publica a versão de teste com Tina em augustocb.github.io/carolcalca/teste-tina,
-# sem mexer no site principal. Roda a cada push na branch tina-cms (inclusive os
-# commits feitos pelo painel do Tina Cloud) e também pode ser disparado à mão.
+# Publica o site em augustocb.github.io/carolcalca.
+# Roda a cada push na branch tina-cms — inclusive os commits feitos pelo painel
+# do Tina Cloud quando a Carol salva uma alteração — e também pode ser disparado à mão.
 #
 # Precisa, nas configurações do repositório (Settings → Secrets and variables → Actions):
 #   - variável  TINA_CLIENT_ID  (Client ID do projeto no Tina Cloud)
 #   - segredo   TINA_TOKEN      (token de leitura do projeto no Tina Cloud)
-name: Publicar teste do Tina
+name: Publicar site
 
 on:
   push:
@@ -16,7 +16,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: tina-teste
+  group: publicar-site
   cancel-in-progress: true
 
 jobs:
@@ -26,7 +26,7 @@ jobs:
       NEXT_PUBLIC_TINA_CLIENT_ID: ${{ vars.TINA_CLIENT_ID }}
       TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
       GITHUB_BRANCH: tina-cms
-      NEXT_PUBLIC_BASE_PATH: /carolcalca/teste-tina
+      NEXT_PUBLIC_BASE_PATH: /carolcalca
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -39,12 +39,13 @@ jobs:
       # o Tina deixa um .gitignore em admin/ que faria a publicação (via git) pular o painel
       - name: Incluir os arquivos do painel do Tina
         run: rm -f out/admin/.gitignore
-      - name: Publicar em gh-pages/teste-tina
+      # substitui todo o conteúdo da gh-pages pelo site novo (o .nojekyll é criado
+      # pela própria ação, para o GitHub Pages servir a pasta _next)
+      - name: Publicar na gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./out
-          destination_dir: teste-tina
-          keep_files: true
-          commit_message: "Publica teste do Tina (${{ github.sha }})"
+          keep_files: false
+          commit_message: "Publica o site (${{ github.sha }})"

@@ -1,7 +1,7 @@
 # Carol Calcavecchia — site
 
 Site em **Next.js** (gerado como site estático) com o **TinaCMS** para editar o conteúdo
-clicando na própria página. Branch de teste: `tina-cms`.
+clicando na própria página. A branch do site é a `tina-cms`.
 
 ## Como rodar e editar
 
@@ -42,7 +42,15 @@ npm run build
 
 ## Publicar
 
-Ainda não configurado para esta branch. Para a Carol editar pela internet, o painel precisa
-do **Tina Cloud** (gratuito até 2 usuários): criar a conta, conectar o repositório e definir
-`NEXT_PUBLIC_TINA_CLIENT_ID` e `TINA_TOKEN`. O site continua estático; no GitHub Pages ele é
-gerado com `NEXT_PUBLIC_BASE_PATH=/carolcalca` (por estar em `augustocb.github.io/carolcalca`).
+É automático. A cada push na branch `tina-cms`, inclusive quando a Carol salva algo no
+painel online, o GitHub Actions (`.github/workflows/publicar-site.yml`) gera o site com o
+conteúdo do Tina Cloud e publica na branch `gh-pages`, que o GitHub Pages serve em
+https://augustocb.github.io/carolcalca. Leva cerca de 2 minutos.
+
+- Painel online: https://augustocb.github.io/carolcalca/admin/index.html (login do Tina Cloud;
+  quem edita precisa ser convidado no projeto, até 2 pessoas no plano grátis).
+- Chaves usadas na publicação, em Settings → Secrets and variables → Actions:
+  a variável `TINA_CLIENT_ID` e o segredo `TINA_TOKEN`.
+- Não envie nada à mão para a `gh-pages`: ela é substituída inteira a cada publicação.
+- Para publicar sem mudar nada (ex.: depois de trocar as chaves), rode o workflow
+  “Publicar site” manualmente na aba Actions.
