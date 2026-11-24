@@ -1,0 +1,47 @@
+# Publica a versão de teste com Tina em augustocb.github.io/carolcalca/teste-tina,
+# sem mexer no site principal. Roda a cada push na branch tina-cms (inclusive os
+# commits feitos pelo painel do Tina Cloud) e também pode ser disparado à mão.
+#
+# Precisa, nas configurações do repositório (Settings → Secrets and variables → Actions):
+#   - variável  TINA_CLIENT_ID  (Client ID do projeto no Tina Cloud)
+#   - segredo   TINA_TOKEN      (token de leitura do projeto no Tina Cloud)
+name: Publicar teste do Tina
+
+on:
+  push:
+    branches: [tina-cms]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tina-teste
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_TINA_CLIENT_ID: ${{ vars.TINA_CLIENT_ID }}
+      TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+      GITHUB_BRANCH: tina-cms
+      NEXT_PUBLIC_BASE_PATH: /carolcalca/teste-tina
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Gerar o site (conteúdo lido do Tina Cloud)
+        run: npm run build:cloud
+      - name: Publicar em gh-pages/teste-tina
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./out
+          destination_dir: teste-tina
+          keep_files: true
+          commit_message: "Publica teste do Tina (${{ github.sha }})"

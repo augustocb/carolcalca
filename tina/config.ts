@@ -111,7 +111,12 @@ export default defineConfig({
   branch,
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null,
   token: process.env.TINA_TOKEN || null,
-  build: { outputFolder: "admin", publicFolder: "public" },
+  build: {
+    outputFolder: "admin",
+    publicFolder: "public",
+    // site servido num subcaminho (ex.: augustocb.github.io/carolcalca/teste-tina)
+    basePath: (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/^\//, "") || undefined,
+  },
   media: { tina: { mediaRoot: "images", publicFolder: "public" } },
   schema: {
     collections: [
