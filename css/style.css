@@ -244,6 +244,12 @@ main { padding: 0 var(--gutter); }
 }
 .dot::after { content: ""; width: 5px; height: 5px; background: var(--ink); }
 
+/* observações do catálogo, no começo da página de prints, centralizadas */
+.prints-notas { max-width: 680px; margin: 90px auto 0; text-align: center; font-size: 16px; line-height: 1.5; }
+.prints-notas ul { list-style: none; padding: 0; }
+.prints-notas + .prints { margin-top: 56px; }
+.prints-notas a { font-weight: 400; text-decoration: underline; text-underline-offset: 3px; }
+
 /* price tag — aparece no hover */
 .price {
   position: sticky;   /* acompanha a rolagem dentro da foto */
@@ -267,17 +273,28 @@ main { padding: 0 var(--gutter); }
 }
 .prints figure:hover .price,
 .prints figure.show-price .price { opacity: 1; }
+/* moldurinha do tamanho: medida fixa, na proporção do A4; deitada para fotos
+   em paisagem, em pé para fotos em retrato */
 .price .size {
-  width: 96px;
+  flex: none;
+  align-self: center;
+  width: 88px;
+  height: 62px;
   border: 1.5px solid var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 14px;
   font-weight: 400;
+  text-align: center;
+  line-height: 1.1;
 }
+.price .size.retrato { width: 62px; height: 88px; }
 .price dl { display: grid; grid-template-columns: auto auto; column-gap: 20px; }
 .price dd { text-align: right; }
 .price .head { grid-column: span 2; font-weight: 600; }
+.price .title { grid-column: span 2; font-weight: 600; font-size: 18px; margin-bottom: 4px; }
+.price .note { grid-column: span 2; font-size: 13px; max-width: 220px; margin-top: 6px; color: #555; }
 .price .strong { font-weight: 600; }
 .price .strong-val { font-weight: 400; }
 
@@ -565,6 +582,8 @@ html { scroll-behavior: smooth; }
     line-height: 1;
   }
   .page-title + .prints { margin-top: 28px; }
+  .page-title + .prints-notas { margin-top: 24px; }
+  .prints-notas + .prints { margin-top: 32px; }
   .page-title + .sobre { margin-top: 28px; }
   .pf .page-title { margin: 0 0 10px; }
   .prints { margin-top: 40px; grid-template-columns: 1fr; }
@@ -601,9 +620,17 @@ html { scroll-behavior: smooth; }
   .pf-film-img:empty { display: none; }
   #publicacoes .pf-film { grid-template-columns: 1fr; }
   #publicacoes .pf-film-img { max-width: 170px; }
-  .pf-gallery { columns: 2; column-gap: 8px; }
+  /* galerias no celular: uma foto por linha, na largura toda (2 colunas deixavam
+     as colunas terminando em alturas diferentes e as composições muito pequenas) */
+  .pf-gallery { columns: 1; }
+  .pf-gallery-retratos, .pf-gallery-familia, .pf-gallery-jornadas, .pf-gallery-feiras { display: block; }
+  .pf-gallery-retratos figure, .pf-gallery-familia figure, .pf-gallery-jornadas figure,
+  .pf-gallery-feiras figure, .pf-gallery-destaque figure { margin: 0 0 8px; }
+  .pf-gallery-retratos figure:first-child img,
+  .pf-gallery-familia figure:first-child img,
+  .pf-gallery-jornadas figure:first-child img { height: auto; }
+  .pf-gallery-jornadas .pf-span { margin-top: 0; }
   .pf-gallery figure { margin-bottom: 8px; }
-  .pf-gallery-feiras { gap: 8px; }
   .pf-gallery-retratos { gap: 8px; }
   .pf-gallery-familia { gap: 8px; }
   .pf-gallery-jornadas { gap: 8px; margin-top: 32px; }
