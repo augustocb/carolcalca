@@ -3,20 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>reels — Carol Calcavecchia</title>
+  <title>demo reels — Carol Calcavecchia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/transicao.js"></script>
+  <script src="js/topbar.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <a href="index.html" class="logo">Carol<b>Calcavecchia</b></a>
     <nav>
       <ul class="menu">
-        <li><a href="prints.html">prints</a></li>
-        <li><a href="reels.html" aria-current="page">reels</a></li>
-        <li><a href="contato.html">contato</a></li>
+        <li><a href="prints.html" data-label="prints">prints</a></li>
+        <li><a href="reels.html" aria-current="page" data-label="demo reels">demo reels</a></li>
+        <li><a href="contato.html" data-label="contato">contato</a></li>
       </ul>
     </nav>
   </header>
@@ -39,6 +41,9 @@
         <svg viewBox="0 0 18 32" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 2 14 14L2 30"/></svg>
       </button>
     </section>
+
+    <!-- celular: todos os reels em sequência -->
+    <section class="reel-list" id="list"></section>
   </main>
 
   <script>
@@ -61,22 +66,29 @@
     const counter = document.getElementById('counter');
     let i = 0;
 
+    function media(r) {
+      if (!r.embed) {
+        const d = document.createElement('div');
+        d.className = 'empty'; d.textContent = 'vídeo em breve';
+        return d;
+      }
+      if (/\.(mp4|webm|mov)$/i.test(r.embed)) {
+        const v = document.createElement('video');
+        v.src = r.embed; v.controls = true; v.playsInline = true; v.preload = 'metadata';
+        return v;
+      }
+      const f = document.createElement('iframe');
+      f.src = r.embed;
+      f.loading = 'lazy';
+      f.allow = 'autoplay; fullscreen; picture-in-picture';
+      f.allowFullscreen = true;
+      return f;
+    }
+
+    // computador e tablet: um reel por vez, com setas
     function render() {
       const r = REELS[i];
-      frame.innerHTML = '';
-      if (!r.embed) {
-        frame.innerHTML = '<div class="empty">vídeo em breve</div>';
-      } else if (/\.(mp4|webm|mov)$/i.test(r.embed)) {
-        const v = document.createElement('video');
-        v.src = r.embed; v.controls = true; v.playsInline = true;
-        frame.appendChild(v);
-      } else {
-        const f = document.createElement('iframe');
-        f.src = r.embed;
-        f.allow = 'autoplay; fullscreen; picture-in-picture';
-        f.allowFullscreen = true;
-        frame.appendChild(f);
-      }
+      frame.replaceChildren(media(r));
       caption.textContent = r.caption;
       counter.textContent = `${i + 1}/${REELS.length}`;
     }
@@ -88,7 +100,33 @@
       if (e.key === 'ArrowLeft') go(-1);
       if (e.key === 'ArrowRight') go(1);
     });
-    render();
+
+    // celular: lista em sequência (montada só quando a tela é de celular)
+    const list = document.getElementById('list');
+    const mobile = matchMedia('(max-width: 700px)');
+    function update() {
+      if (mobile.matches) {
+        frame.replaceChildren();          // não deixa o vídeo do carrossel tocando escondido
+        if (!list.childElementCount) {
+          list.replaceChildren(...REELS.map(r => {
+            const item = document.createElement('article');
+            const box = document.createElement('div');
+            box.className = 'reel-frame';
+            box.appendChild(media(r));
+            const cap = document.createElement('p');
+            cap.className = 'reel-meta';
+            cap.textContent = r.caption;
+            item.append(box, cap);
+            return item;
+          }));
+        }
+      } else {
+        list.replaceChildren();
+        render();
+      }
+    }
+    mobile.addEventListener('change', update);
+    update();
   </script>
 </body>
 </html>

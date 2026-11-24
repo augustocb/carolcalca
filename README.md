@@ -9,7 +9,7 @@ Site estático (HTML + CSS + JS puro, sem build). Abra `index.html` no navegador
 - `contato.html` — e-mail e Instagram
 
 ## Como trocar o conteúdo
-- **Foto da capa:** substitua `images/hero.jpg` (ela é convertida para P&B automaticamente).
-- **Prints:** substitua `images/prints/01.jpg` … `09.jpg` pelos arquivos em alta resolução. As imagens atuais são recortes de baixa resolução, só para ocupar o lugar.
+- **Foto da capa:** substitua `images/hero.webp` (ela é convertida para P&B automaticamente).
+- **Prints:** substitua `images/prints/01.webp` … `09.webp` (fotos em .webp, até 1600px no lado maior).
 - **Reels:** edite a lista `REELS` em `reels.html` com links de embed do YouTube/Vimeo ou arquivos `.mp4`.
 - **Instagram:** troque o link em `contato.html`.
