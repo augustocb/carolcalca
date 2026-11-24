@@ -1,4 +1,4 @@
-# Publica o site em augustocb.github.io/carolcalca.
+# Publica o site em carolcalcavecchia.com (GitHub Pages com domínio próprio).
 # Roda a cada push na branch tina-cms — inclusive os commits feitos pelo painel
 # do Tina Cloud quando a Carol salva uma alteração — e também pode ser disparado à mão.
 #
@@ -26,7 +26,8 @@ jobs:
       NEXT_PUBLIC_TINA_CLIENT_ID: ${{ vars.TINA_CLIENT_ID }}
       TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
       GITHUB_BRANCH: tina-cms
-      NEXT_PUBLIC_BASE_PATH: /carolcalca
+      # domínio próprio: o site fica na raiz, sem subcaminho
+      NEXT_PUBLIC_BASE_PATH: ""
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -48,4 +49,5 @@ jobs:
           publish_branch: gh-pages
           publish_dir: ./out
           keep_files: false
+          cname: carolcalcavecchia.com   # grava o arquivo CNAME do domínio a cada publicação
           commit_message: "Publica o site (${{ github.sha }})"

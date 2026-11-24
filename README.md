@@ -45,12 +45,22 @@ npm run build
 É automático. A cada push na branch `tina-cms`, inclusive quando a Carol salva algo no
 painel online, o GitHub Actions (`.github/workflows/publicar-site.yml`) gera o site com o
 conteúdo do Tina Cloud e publica na branch `gh-pages`, que o GitHub Pages serve em
-https://augustocb.github.io/carolcalca. Leva cerca de 2 minutos.
+https://carolcalcavecchia.com. Leva cerca de 2 minutos.
 
-- Painel online: https://augustocb.github.io/carolcalca/admin/index.html (login do Tina Cloud;
+- Painel online: https://carolcalcavecchia.com/admin/index.html (login do Tina Cloud;
   quem edita precisa ser convidado no projeto, até 2 pessoas no plano grátis).
 - Chaves usadas na publicação, em Settings → Secrets and variables → Actions:
   a variável `TINA_CLIENT_ID` e o segredo `TINA_TOKEN`.
 - Não envie nada à mão para a `gh-pages`: ela é substituída inteira a cada publicação.
 - Para publicar sem mudar nada (ex.: depois de trocar as chaves), rode o workflow
   “Publicar site” manualmente na aba Actions.
+
+## Domínio
+
+`carolcalcavecchia.com` está registrado no GoDaddy, e o DNS também fica lá. Registros:
+
+| Tipo | Nome | Valor |
+|---|---|---|
+| A | @ | 185.199.108.153 · 185.199.109.153 · 185.199.110.153 · 185.199.111.153 |
+| AAAA | @ | 2606:50c0:8000::153 · 2606:50c0:8001::153 · 2606:50c0:8002::153 · 2606:50c0:8003::153 |
+| CNAME | www | augustocb.github.io |
