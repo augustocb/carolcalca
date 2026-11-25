@@ -1,8 +1,7 @@
 {
-  "notas": "Para os prints em fine art, os papéis são escolhidos de acordo com a foto.\n\nPara fotos em outros tamanhos, consulte o orçamento pelo [contato](sobre).",
+  "notas": "Para os prints em fine art, os papéis são escolhidos de acordo com a foto.\n\nPara fotos em outros tamanhos, consulte o orçamento pelo [contato](sobre).\n",
   "fotos": [
     {
-      "imagem": "/images/prints/01.webp",
       "alt": "Cachoeira sobre paredão de pedra",
       "coluna": "w8",
       "ponto": "nenhum",
