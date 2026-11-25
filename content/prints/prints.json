@@ -2,9 +2,65 @@
   "notas": "Para os prints em fine art, os papéis são escolhidos de acordo com a foto.\n\nPara fotos em outros tamanhos, consulte o orçamento pelo [contato](sobre).\n",
   "fotos": [
     {
-      "alt": "Cachoeira sobre paredão de pedra",
+      "imagem": "/images/prints/35.webp",
+      "alt": "Oferendas #2: rosa vermelha boiando em água verde",
+      "coluna": "w5",
+      "ponto": "antes-3",
+      "tipo": "padrao",
+      "titulo": "Oferendas #2",
+      "tamanho": "a4",
+      "fineArt": 200,
+      "nota": ""
+    },
+    {
+      "imagem": "/images/prints/32.webp",
+      "alt": "Mar: mar escuro",
       "coluna": "w8",
       "ponto": "nenhum",
+      "tipo": "padrao",
+      "titulo": "Mar",
+      "tamanho": "a4",
+      "fineArt": 200,
+      "nota": "também em risografia a3, em duas cores — consultar"
+    },
+    {
+      "imagem": "/images/prints/34.webp",
+      "alt": "Oferendas #1: flores boiando no mar",
+      "coluna": "w4",
+      "ponto": "nenhum",
+      "tipo": "padrao",
+      "titulo": "Oferendas #1",
+      "tamanho": "a4",
+      "fineArt": 200,
+      "nota": ""
+    },
+    {
+      "imagem": "/images/prints/08.webp",
+      "alt": "Tronco de palmeira na areia",
+      "coluna": "w4",
+      "ponto": "nenhum",
+      "tipo": "padrao",
+      "titulo": "",
+      "tamanho": "a4",
+      "fineArt": 200,
+      "nota": ""
+    },
+    {
+      "imagem": "/images/prints/07.webp",
+      "alt": "Pedras no mar",
+      "coluna": "w4",
+      "ponto": "nenhum",
+      "tipo": "padrao",
+      "titulo": "",
+      "tamanho": "a4",
+      "fineArt": 200,
+      "nota": ""
+    },
+    {
+      "imagem": "/images/prints/05.webp",
+      "alt": "Ondas sobre recifes",
+      "coluna": "w6",
+      "ponto": "antes-2",
       "tipo": "padrao",
       "titulo": "",
       "tamanho": "a4",
@@ -45,50 +101,6 @@
       "nota": ""
     },
     {
-      "imagem": "/images/prints/05.webp",
-      "alt": "Ondas sobre recifes",
-      "coluna": "w6",
-      "ponto": "antes-2",
-      "tipo": "padrao",
-      "titulo": "",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
-      "imagem": "/images/prints/06.webp",
-      "alt": "Mãos sobre folhagem",
-      "coluna": "w5",
-      "ponto": "depois-3",
-      "tipo": "fineart",
-      "titulo": "",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
-      "imagem": "/images/prints/07.webp",
-      "alt": "Pedras no mar",
-      "coluna": "w4",
-      "ponto": "nenhum",
-      "tipo": "padrao",
-      "titulo": "",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
-      "imagem": "/images/prints/08.webp",
-      "alt": "Tronco de palmeira na areia",
-      "coluna": "w4",
-      "ponto": "nenhum",
-      "tipo": "padrao",
-      "titulo": "",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
       "imagem": "/images/prints/09.webp",
       "alt": "Árvore seca contra o céu",
       "coluna": "w8",
@@ -111,44 +123,11 @@
       "nota": ""
     },
     {
-      "imagem": "/images/prints/11.webp",
-      "alt": "Fotografia emoldurada de árvore seca sobre um lençol",
-      "coluna": "w4",
-      "ponto": "nenhum",
-      "tipo": "nenhum",
-      "titulo": "",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
       "imagem": "/images/prints/12.webp",
       "alt": "Pés e saias brancas em roda na areia",
       "coluna": "w6",
       "ponto": "antes-2",
       "tipo": "padrao",
-      "titulo": "",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
-      "imagem": "/images/prints/13.webp",
-      "alt": "Paredão de pedra com raízes e vegetação",
-      "coluna": "w4",
-      "ponto": "nenhum",
-      "tipo": "padrao",
-      "titulo": "",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
-      "imagem": "/images/prints/14.webp",
-      "alt": "Porta azul em parede descascada",
-      "coluna": "w4",
-      "ponto": "nenhum",
-      "tipo": "nenhum",
       "titulo": "",
       "tamanho": "a4",
       "fineArt": 200,
@@ -243,17 +222,6 @@
       "nota": ""
     },
     {
-      "imagem": "/images/prints/23.webp",
-      "alt": "Fotografia emoldurada de um rochedo entre plantas",
-      "coluna": "w4",
-      "ponto": "nenhum",
-      "tipo": "nenhum",
-      "titulo": "",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
       "imagem": "/images/prints/24.webp",
       "alt": "Praia com guarda-sóis e ilhas ao fundo",
       "coluna": "w4",
@@ -309,17 +277,6 @@
       "nota": ""
     },
     {
-      "imagem": "/images/prints/29.webp",
-      "alt": "Corredor com porta verde e escada",
-      "coluna": "w6",
-      "ponto": "depois-2",
-      "tipo": "nenhum",
-      "titulo": "",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
       "imagem": "/images/prints/30.webp",
       "alt": "Moldura vazada mostrando um terreno com árvores",
       "coluna": "w4",
@@ -342,45 +299,12 @@
       "nota": ""
     },
     {
-      "imagem": "/images/prints/32.webp",
-      "alt": "Mar: mar escuro",
-      "coluna": "w8",
-      "ponto": "nenhum",
-      "tipo": "padrao",
-      "titulo": "Mar",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": "também em risografia a3, em duas cores — consultar"
-    },
-    {
       "imagem": "/images/prints/33.webp",
       "alt": "Mãos segurando fotografia emoldurada do mar",
       "coluna": "w4",
       "ponto": "nenhum",
       "tipo": "nenhum",
       "titulo": "",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
-      "imagem": "/images/prints/34.webp",
-      "alt": "Oferendas #1: flores boiando no mar",
-      "coluna": "w4",
-      "ponto": "nenhum",
-      "tipo": "padrao",
-      "titulo": "Oferendas #1",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
-      "imagem": "/images/prints/35.webp",
-      "alt": "Oferendas #2: rosa vermelha boiando em água verde",
-      "coluna": "w5",
-      "ponto": "antes-3",
-      "tipo": "padrao",
-      "titulo": "Oferendas #2",
       "tamanho": "a4",
       "fineArt": 200,
       "nota": ""
