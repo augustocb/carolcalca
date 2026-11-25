@@ -1,6 +1,7 @@
 :root {
   --ink: #1a1a1a;
   --bg: #ffffff;
+  --largura-site: 1600px;          /* largura máxima das páginas internas em telas muito grandes */
   --gutter: 12px;                 /* espaço entre as fotos */
   --margem: var(--gutter);        /* margem lateral das páginas */
   --font: "League Spartan", "Avenir Next", "Avenir", system-ui, sans-serif;
@@ -16,6 +17,9 @@ body {
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
 }
+
+/* páginas internas (a capa ocupa a tela toda): centralizadas, com largura máxima */
+body:has(.site-header) { max-width: var(--largura-site); margin: 0 auto; position: relative; }
 
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
@@ -204,6 +208,9 @@ img { display: block; max-width: 100%; }
   grid-template-columns: 1fr auto;
   align-items: center;
   padding: 14px 24px;
+  /* em telas muito grandes, a barra fixa fica na largura do site */
+  left: max(0px, (100% - var(--largura-site)) / 2);
+  right: max(0px, (100% - var(--largura-site)) / 2);
 }
 .site-header.compact .logo { justify-self: start; }
 .site-header.compact nav { justify-self: end; }
