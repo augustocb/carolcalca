@@ -37,14 +37,38 @@ function Card({ foto, retrato, onSolicitar }: { foto: any; retrato: boolean; onS
   );
 }
 
-function Foto({ foto, mostrar, onToque, onSolicitar }: { foto: any; mostrar: boolean; onToque: (retrato: boolean) => void; onSolicitar: () => void }) {
+/*
+ * Pontos decorativos da grade (8 colunas). Cada foto pode ter um ponto antes ou depois dela.
+ * Um ponto só aparece se couber na MESMA linha da sua foto; senão, é omitido. Assim, quando
+ * fotos são removidas ou trocadas de lugar no painel, não sobram pontos soltos numa linha sozinhos.
+ */
+type Pontos = { antes?: number; depois?: number };
+function arrumarPontos(fotos: any[]): Pontos[] {
+  let linha = 0;                                   // colunas já ocupadas na linha atual
+  return fotos.map((f) => {
+    const col = Number(String(f.coluna || "w4").slice(1)) || 4;
+    const [lado, n] = String(f.ponto || "nenhum").split("-");
+    const ponto = Number(n) || 0;
+    const r: Pontos = {};
+    const antes = lado === "antes" ? ponto : 0;
+    if (linha + antes + col > 8) linha = 0;        // a foto (com o ponto) não cabe: começa nova linha
+    if (antes && linha + antes + col <= 8) { r.antes = antes; linha += antes; }
+    if (linha + col > 8) linha = 0;
+    linha += col;
+    if (lado === "depois" && ponto && linha + ponto <= 8) { r.depois = ponto; linha += ponto; }
+    if (linha >= 8) linha = 0;
+    return r;
+  });
+}
+
+function Foto({ foto, pontos, mostrar, onToque, onSolicitar }: { foto: any; pontos: Pontos; mostrar: boolean; onToque: (retrato: boolean) => void; onSolicitar: () => void }) {
   const img = useRef<HTMLImageElement>(null);
   const [retrato, setRetrato] = useState(false);
   const medir = () => img.current?.naturalWidth && setRetrato(img.current.naturalHeight > img.current.naturalWidth);
   useEffect(() => { if (img.current?.complete) medir(); }, [foto.imagem]);
   const leve = versoesDaFoto(foto.imagem);
   const ponto = (lado: "antes" | "depois") =>
-    foto.ponto?.startsWith(lado) ? <div className={`w${foto.ponto.split("-")[1]} dot`} /> : null;
+    pontos[lado] ? <div className={`w${pontos[lado]} dot`} /> : null;
   return (
     <>
       {ponto("antes")}
@@ -66,6 +90,7 @@ export default function PrintsView(props: { data: any; query: string; variables:
   const [zoom, setZoom] = useState<Zoom>(null);
   const [cardTablet, setCardTablet] = useState<number | null>(null);
   const [pedido, setPedido] = useState<any>(null);   // foto do pedido em aberto
+  const pontosQueCabem = arrumarPontos(p.fotos || []);
 
   const toque = (i: number, foto: any, retrato: boolean) => {
     // tablet: 1º toque mostra o card (como o mouseover); 2º toque amplia
@@ -82,7 +107,7 @@ export default function PrintsView(props: { data: any; query: string; variables:
         <section className="prints-notas" data-tina-field={tinaField(p, "notas")}><RichText content={p.notas} /></section>
         <section className="prints">
           {(p.fotos || []).map((foto: any, i: number) => (
-            <Foto key={i} foto={foto} mostrar={cardTablet === i} onToque={(r) => toque(i, foto, r)} onSolicitar={() => setPedido(foto)} />
+            <Foto key={i} foto={foto} pontos={pontosQueCabem[i]} mostrar={cardTablet === i} onToque={(r) => toque(i, foto, r)} onSolicitar={() => setPedido(foto)} />
           ))}
         </section>
       </main>

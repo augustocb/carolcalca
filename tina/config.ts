@@ -180,6 +180,7 @@ export default defineConfig({
                 type: "string",
                 name: "ponto",
                 label: "Ponto decorativo",
+                description: "Só aparece se couber na mesma linha da foto (a linha tem 8 colunas).",
                 options: [
                   { value: "nenhum", label: "Nenhum" },
                   { value: "antes-2", label: "Antes da foto (2 colunas)" },
