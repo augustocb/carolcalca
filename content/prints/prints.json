@@ -2,17 +2,6 @@
   "notas": "Para os prints em fine art, os papéis são escolhidos de acordo com a foto.\n\nPara fotos em outros tamanhos, consulte o orçamento pelo [contato](sobre).\n",
   "fotos": [
     {
-      "imagem": "/images/prints/35.webp",
-      "alt": "Oferendas #2: rosa vermelha boiando em água verde",
-      "coluna": "w5",
-      "ponto": "antes-3",
-      "tipo": "padrao",
-      "titulo": "Oferendas #2",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
       "imagem": "/images/prints/32.webp",
       "alt": "Mar: mar escuro",
       "coluna": "w8",
@@ -30,6 +19,17 @@
       "ponto": "nenhum",
       "tipo": "padrao",
       "titulo": "Oferendas #1",
+      "tamanho": "a4",
+      "fineArt": 200,
+      "nota": ""
+    },
+    {
+      "imagem": "/images/prints/35.webp",
+      "alt": "Oferendas #2: rosa vermelha boiando em água verde",
+      "coluna": "w5",
+      "ponto": "antes-3",
+      "tipo": "padrao",
+      "titulo": "Oferendas #2",
       "tamanho": "a4",
       "fineArt": 200,
       "nota": ""
