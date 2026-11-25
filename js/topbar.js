@@ -2,7 +2,7 @@
  * Topbar das páginas internas.
  * - No começo, ela rola junto com a página, sendo empurrada para cima até sumir.
  * - Quando já saiu da tela, volta como barra fixa e compacta (logo à esquerda,
- *   menu centralizado), descendo do topo; logo e itens chegam em cascata.
+ *   menu à direita), descendo do topo com um leve fade (logo e menu vêm junto).
  * - Ao voltar para o topo, a barra compacta sobe e sai, e a topbar original
  *   reaparece naturalmente com a rolagem.
  * - No celular, a barra (logo + hambúrguer) fica sempre fixa no topo, sem troca nem
@@ -12,11 +12,8 @@
   const header = document.querySelector('.site-header');
   if (!header) return;
   const root = document.documentElement;
-  const parts = [header.querySelector('.logo'), ...header.querySelectorAll('.menu li')];
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const mobile = matchMedia('(max-width: 700px)');
-  const SPRING = 'linear(0, .034, .118, .231, .356, .482, .6, .706, .796, .87, .928, .973, 1.004, 1.026, 1.038, 1.045, 1.046, 1.044, 1.04, 1.035, 1.029, 1.023, 1.018, 1.013, 1.009, 1.006, 1.003, 1.001, 1, .999, .998, .998, 1)';
-  const EASE = CSS.supports('animation-timing-function', SPRING) ? SPRING : 'cubic-bezier(.22, 1, .36, 1)';
   let openH = 0;          // altura da topbar aberta
   let compact = false;
   let running = [];
@@ -39,14 +36,11 @@
     compact = true;
     // no celular a barra é sempre a mesma e fica fixa: nada a animar
     if (!animate || reduce.matches || mobile.matches) return;
+    // a barra inteira desce com um leve fade; logo e menu vêm junto, sem animação própria
     running.push(header.animate(
-      [{ transform: 'translateY(-100%)' }, { transform: 'none' }],
-      { duration: 700, easing: 'cubic-bezier(.22, 1, .36, 1)' }
+      [{ transform: 'translateY(-100%)', opacity: 0 }, { transform: 'none', opacity: 1 }],
+      { duration: 650, easing: 'cubic-bezier(.25, .8, .25, 1)' }
     ));
-    parts.forEach((p, i) => running.push(p.animate(
-      [{ transform: 'translateY(-14px)', opacity: 0 }, { transform: 'none', opacity: 1 }],
-      { duration: 1000 + i * 80, delay: 120 + i * 60, easing: EASE, fill: 'backwards' }
-    )));
   }
 
   function hide(animate) {           // barra compacta sobe e sai
@@ -54,8 +48,8 @@
     if (!animate || reduce.matches || mobile.matches) { stop(); header.classList.remove('compact'); return; }
     stop();
     const a = header.animate(
-      [{ transform: 'none' }, { transform: 'translateY(-100%)' }],
-      { duration: 280, easing: 'cubic-bezier(.4, 0, 1, 1)', fill: 'forwards' }
+      [{ transform: 'none', opacity: 1 }, { transform: 'translateY(-100%)', opacity: 0 }],
+      { duration: 420, easing: 'cubic-bezier(.45, 0, .55, 1)', fill: 'forwards' }
     );
     running.push(a);
     a.finished.then(() => { if (!compact) { header.classList.remove('compact'); a.cancel(); } }, () => {});
