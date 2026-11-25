@@ -24,12 +24,45 @@
       "nota": ""
     },
     {
+      "imagem": "/images/prints/33.webp",
+      "alt": "Mãos segurando fotografia emoldurada do mar",
+      "coluna": "w4",
+      "ponto": "nenhum",
+      "tipo": "nenhum",
+      "titulo": "",
+      "tamanho": "a4",
+      "fineArt": 200,
+      "nota": ""
+    },
+    {
       "imagem": "/images/prints/35.webp",
       "alt": "Oferendas #2: rosa vermelha boiando em água verde",
       "coluna": "w5",
       "ponto": "antes-3",
       "tipo": "padrao",
       "titulo": "Oferendas #2",
+      "tamanho": "a4",
+      "fineArt": 200,
+      "nota": ""
+    },
+    {
+      "imagem": "/images/prints/36.webp",
+      "alt": "Oferendas #3: mão oferecendo flores vermelhas ao mar",
+      "coluna": "w4",
+      "ponto": "nenhum",
+      "tipo": "padrao",
+      "titulo": "Oferendas #3",
+      "tamanho": "a4",
+      "fineArt": 200,
+      "nota": ""
+    },
+    {
+      "imagem": "/images/prints/37.webp",
+      "alt": "Oferendas #4: mãos com um buquê de flores sobre o mar",
+      "coluna": "w4",
+      "ponto": "nenhum",
+      "tipo": "padrao",
+      "titulo": "Oferendas #4",
       "tamanho": "a4",
       "fineArt": 200,
       "nota": ""
@@ -68,20 +101,9 @@
       "nota": ""
     },
     {
-      "imagem": "/images/prints/02.webp",
-      "alt": "Muro com a frase “nem todos tem um preço”",
-      "coluna": "w6",
-      "ponto": "depois-2",
-      "tipo": "nenhum",
-      "titulo": "",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
-      "imagem": "/images/prints/03.webp",
-      "alt": "Galhos e cerca sob céu nublado",
-      "coluna": "w4",
+      "imagem": "/images/prints/09.webp",
+      "alt": "Árvore seca contra o céu",
+      "coluna": "w8",
       "ponto": "nenhum",
       "tipo": "padrao",
       "titulo": "",
@@ -101,19 +123,8 @@
       "nota": ""
     },
     {
-      "imagem": "/images/prints/09.webp",
-      "alt": "Árvore seca contra o céu",
-      "coluna": "w8",
-      "ponto": "nenhum",
-      "tipo": "padrao",
-      "titulo": "",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
-      "imagem": "/images/prints/10.webp",
-      "alt": "Areia com marcas de vento",
+      "imagem": "/images/prints/03.webp",
+      "alt": "Galhos e cerca sob céu nublado",
       "coluna": "w4",
       "ponto": "nenhum",
       "tipo": "padrao",
@@ -134,11 +145,22 @@
       "nota": ""
     },
     {
-      "imagem": "/images/prints/15.webp",
-      "alt": "Árvores secas sob céu azul",
+      "imagem": "/images/prints/18.webp",
+      "alt": "Mão sobre cerca de madeira contra o céu",
       "coluna": "w4",
       "ponto": "nenhum",
       "tipo": "padrao",
+      "titulo": "",
+      "tamanho": "a4",
+      "fineArt": 200,
+      "nota": "também em risografia a3 — consultar"
+    },
+    {
+      "imagem": "/images/prints/17.webp",
+      "alt": "Pessoa de camiseta vermelha apoiada numa cerca de madeira",
+      "coluna": "w4",
+      "ponto": "nenhum",
+      "tipo": "nenhum",
       "titulo": "",
       "tamanho": "a4",
       "fineArt": 200,
@@ -156,26 +178,26 @@
       "nota": ""
     },
     {
-      "imagem": "/images/prints/17.webp",
-      "alt": "Pessoa de camiseta vermelha apoiada numa cerca de madeira",
-      "coluna": "w4",
-      "ponto": "nenhum",
-      "tipo": "nenhum",
-      "titulo": "",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
-      "imagem": "/images/prints/18.webp",
-      "alt": "Mão sobre cerca de madeira contra o céu",
+      "imagem": "/images/prints/15.webp",
+      "alt": "Árvores secas sob céu azul",
       "coluna": "w4",
       "ponto": "nenhum",
       "tipo": "padrao",
       "titulo": "",
       "tamanho": "a4",
       "fineArt": 200,
-      "nota": "também em risografia a3 — consultar"
+      "nota": ""
+    },
+    {
+      "imagem": "/images/prints/10.webp",
+      "alt": "Areia com marcas de vento",
+      "coluna": "w4",
+      "ponto": "nenhum",
+      "tipo": "padrao",
+      "titulo": "",
+      "tamanho": "a4",
+      "fineArt": 200,
+      "nota": ""
     },
     {
       "imagem": "/images/prints/19.webp",
@@ -299,39 +321,6 @@
       "nota": ""
     },
     {
-      "imagem": "/images/prints/33.webp",
-      "alt": "Mãos segurando fotografia emoldurada do mar",
-      "coluna": "w4",
-      "ponto": "nenhum",
-      "tipo": "nenhum",
-      "titulo": "",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
-      "imagem": "/images/prints/36.webp",
-      "alt": "Oferendas #3: mão oferecendo flores vermelhas ao mar",
-      "coluna": "w4",
-      "ponto": "nenhum",
-      "tipo": "padrao",
-      "titulo": "Oferendas #3",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
-      "imagem": "/images/prints/37.webp",
-      "alt": "Oferendas #4: mãos com um buquê de flores sobre o mar",
-      "coluna": "w4",
-      "ponto": "nenhum",
-      "tipo": "padrao",
-      "titulo": "Oferendas #4",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
       "imagem": "/images/prints/38.webp",
       "alt": "Paisagem #1: díptico de tecido branco em preto e branco",
       "coluna": "w6",
@@ -361,28 +350,6 @@
       "tipo": "fineart",
       "titulo": "Tríptico Mar",
       "tamanho": "38 × 13 cm",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
-      "imagem": "/images/prints/41.webp",
-      "alt": "Vazio #1: portas de um prédio abandonado",
-      "coluna": "w4",
-      "ponto": "nenhum",
-      "tipo": "padrao",
-      "titulo": "Vazio #1",
-      "tamanho": "a4",
-      "fineArt": 200,
-      "nota": ""
-    },
-    {
-      "imagem": "/images/prints/42.webp",
-      "alt": "Vazio #2: díptico de cômodos abandonados",
-      "coluna": "w4",
-      "ponto": "nenhum",
-      "tipo": "padrao",
-      "titulo": "Vazio #2",
-      "tamanho": "a4",
       "fineArt": 200,
       "nota": ""
     }
