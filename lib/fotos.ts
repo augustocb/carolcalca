@@ -11,13 +11,26 @@ const porCaminho: Record<string, Versoes> = Object.fromEntries(
   Object.entries(mapa).map(([fonte, v]) => [fonte.replace(/^\/images/, ""), v]),
 );
 
+/**
+ * Caminho da foto dentro de images/ (ex.: "/prints/05.webp"), seja qual for a forma do endereço:
+ *   "/images/prints/05.webp"                                   (arquivo local)
+ *   "https://assets.tina.io/<id>/prints/05.webp"               (CDN do Tina, branch principal)
+ *   "https://assets.tina.io/<id>/__staging/<branch>/__file/prints/05.webp"   (CDN do Tina, outra branch)
+ */
+export function caminhoRelativo(imagem: string) {
+  if (/^https?:\/\//.test(imagem)) {
+    const caminho = new URL(imagem).pathname
+      .replace(/^\/[0-9a-f-]{36}/i, "")                 // id do projeto no Tina
+      .replace(/^\/__staging\/[^/]+\/__file/, "");      // prefixo de branch
+    return decodeURIComponent(caminho);
+  }
+  return imagem.replace(/^\/images/, "");
+}
+
 export type Foto = { src: string; srcSet?: string; grande: string; pequena: string };
 
 export function versoesDaFoto(imagem: string): Foto {
-  // no site publicado, o Tina entrega a foto pela URL do CDN dele (…/__file/prints/05.webp)
-  const m = imagem?.match(/__file(\/.+)$/);
-  const relativo = m ? m[1] : imagem?.replace(/^\/images/, "");
-  const v = (relativo && porCaminho[relativo]) || undefined;
+  const v = (imagem && porCaminho[caminhoRelativo(imagem)]) || undefined;
   if (!v?.versoes?.length) return { src: asset(imagem), grande: asset(imagem), pequena: asset(imagem) };
   const ordenadas = [...v.versoes].sort((a, b) => a.largura - b.largura);
   const media = ordenadas.find((x) => x.largura >= 1200) || ordenadas[ordenadas.length - 1];
