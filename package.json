@@ -2,9 +2,9 @@
   "name": "carolcalca",
   "private": true,
   "scripts": {
-    "dev": "node tools/capa.mjs && tinacms dev -c \"next dev\"",
-    "build": "node tools/capa.mjs && tinacms dev -c \"NODE_ENV=production next build\"",
-    "build:cloud": "node tools/capa.mjs && tinacms build && next build",
+    "dev": "node tools/capa.mjs && node tools/fotos.mjs && tinacms dev -c \"next dev\"",
+    "build": "node tools/capa.mjs && node tools/fotos.mjs && tinacms dev -c \"NODE_ENV=production next build\"",
+    "build:cloud": "node tools/capa.mjs && node tools/fotos.mjs && tinacms build && next build",
     "pedido:local": "wrangler dev --config servidor/wrangler.toml --port 8787",
     "pedido:chave": "wrangler secret put RESEND_API_KEY --config servidor/wrangler.toml",
     "pedido:publicar": "wrangler deploy --config servidor/wrangler.toml"

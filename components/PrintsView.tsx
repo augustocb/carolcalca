@@ -5,7 +5,7 @@ import SiteHeader from "./SiteHeader";
 import RichText from "./RichText";
 import Lightbox, { type Zoom } from "./Lightbox";
 import PedidoModal from "./PedidoModal";
-import { asset } from "@/lib/site";
+import { versoesDaFoto, tamanhoNaGrade } from "@/lib/fotos";
 
 /* Card de preço. A linha da moldura só aparece se a foto tiver preço de moldura preenchido. */
 function Card({ foto, retrato, onSolicitar }: { foto: any; retrato: boolean; onSolicitar: () => void }) {
@@ -42,6 +42,7 @@ function Foto({ foto, mostrar, onToque, onSolicitar }: { foto: any; mostrar: boo
   const [retrato, setRetrato] = useState(false);
   const medir = () => img.current?.naturalWidth && setRetrato(img.current.naturalHeight > img.current.naturalWidth);
   useEffect(() => { if (img.current?.complete) medir(); }, [foto.imagem]);
+  const leve = versoesDaFoto(foto.imagem);
   const ponto = (lado: "antes" | "depois") =>
     foto.ponto?.startsWith(lado) ? <div className={`w${foto.ponto.split("-")[1]} dot`} /> : null;
   return (
@@ -49,7 +50,9 @@ function Foto({ foto, mostrar, onToque, onSolicitar }: { foto: any; mostrar: boo
       {ponto("antes")}
       <figure className={`${foto.coluna || "w4"}${mostrar ? " show-price" : ""}`} onClick={() => onToque(retrato)}
         data-tina-field={tinaField(foto)}>
-        <img ref={img} src={asset(foto.imagem)} alt={foto.alt || ""} loading="lazy" onLoad={medir} />
+        {/* versão leve no tamanho da coluna (tools/fotos.mjs); a original pode ter vários MB */}
+        <img ref={img} src={leve.src} srcSet={leve.srcSet} sizes={tamanhoNaGrade[foto.coluna || "w4"]}
+          alt={foto.alt || ""} loading="lazy" decoding="async" onLoad={medir} />
         <Card foto={foto} retrato={retrato} onSolicitar={onSolicitar} />
       </figure>
       {ponto("depois")}
@@ -68,7 +71,7 @@ export default function PrintsView(props: { data: any; query: string; variables:
     // tablet: 1º toque mostra o card (como o mouseover); 2º toque amplia
     const tablet = matchMedia("(hover: none) and (min-width: 701px)").matches;
     if (tablet && cardTablet !== i) return setCardTablet(i);
-    setZoom({ src: asset(foto.imagem), alt: foto.alt || "", extra: <Card foto={foto} retrato={retrato} onSolicitar={() => { setZoom(null); setPedido(foto); }} /> });
+    setZoom({ src: versoesDaFoto(foto.imagem).grande, alt: foto.alt || "", extra: <Card foto={foto} retrato={retrato} onSolicitar={() => { setZoom(null); setPedido(foto); }} /> });
   };
 
   return (

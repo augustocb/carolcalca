@@ -10,3 +10,5 @@ tina/__generated__/
 .dev.vars
 public/images/capa/
 lib/capa-gerada.json
+public/images/leves/
+lib/fotos-geradas.json

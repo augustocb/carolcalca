@@ -33,6 +33,7 @@ npm run build
 | Componentes (cards, galerias, menu lateral…) | `components/` |
 | Visual e animações | `public/css/style.css`, `public/js/topbar.js`, `public/js/transicao.js` |
 | Fotos | `public/images/` (fotos enviadas pelo painel vão para cá) |
+| Versões leves (geradas na publicação, fora do git) | `public/images/leves/` (prints) e `public/images/capa/` (capa), por `tools/fotos.mjs` e `tools/capa.mjs` |
 
 - Os textos com formatação (bio, descrições) ficam em Markdown dentro dos JSON.
 - O preço da moldura é opcional: vazio, o card não mostra moldura; preenchido, aparece como acréscimo (+ R$).

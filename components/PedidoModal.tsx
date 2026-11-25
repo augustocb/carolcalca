@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { asset } from "@/lib/site";
+import { versoesDaFoto } from "@/lib/fotos";
 
 /*
  * Formulário de pedido de impressão de um print.
@@ -69,7 +69,7 @@ export default function PedidoModal({ foto, onClose }: { foto: any; onClose: () 
         <button type="button" className="pedido-fechar" aria-label="fechar" onClick={onClose}>×</button>
 
         <div className="pedido-foto">
-          <img src={asset(foto.imagem)} alt="" />
+          <img src={versoesDaFoto(foto.imagem).pequena} alt="" />
           <div>
             <h2 id="pedido-titulo">Solicitar impressão</h2>
             <p className="pedido-id">foto #{id}{foto.titulo ? ` · ${foto.titulo}` : ""}</p>
