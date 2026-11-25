@@ -1,7 +1,8 @@
 :root {
   --ink: #1a1a1a;
   --bg: #ffffff;
-  --gutter: 12px;
+  --gutter: 12px;                 /* espaço entre as fotos */
+  --margem: var(--gutter);        /* margem lateral das páginas */
   --font: "League Spartan", "Avenir Next", "Avenir", system-ui, sans-serif;
 }
 
@@ -93,9 +94,14 @@ img { display: block; max-width: 100%; }
     animation-delay: 1s;
   }
 
-  /* capa: "fotógrafa e filmmaker" só aparece depois que título e menu assentam */
+  /* topbar mudando de forma entre páginas internas: some e aparece com a página (ver transicao.js) */
+  html.vt-sem-topbar .site-header .logo,
+  html.vt-sem-topbar .site-header .menu a,
+  html.vt-sem-topbar .site-header .menu a::after { view-transition-name: none; }
+
   .pf-nav { view-transition-name: pf-nav; }
   .page-title { view-transition-name: page-title; }
+  /* capa: "fotógrafa e filmmaker" só aparece depois que título e menu assentam */
   .home .tagline { view-transition-name: tagline; }
   ::view-transition-new(tagline) { animation-duration: .6s; animation-delay: 1s; }
   ::view-transition-old(tagline) { animation-duration: .3s; }
@@ -228,7 +234,15 @@ img { display: block; max-width: 100%; }
   view-transition-name: menu-underline;
 }
 
-main { padding: 0 var(--gutter); }
+main { padding: 0 var(--margem); }
+
+/* rodapé discreto das páginas internas */
+.rodape {
+  padding: 0 var(--margem) 32px;
+  text-align: center;
+  font-size: 13px;
+  color: #999;
+}
 
 /* ---------- prints ---------- */
 .prints {
@@ -436,7 +450,7 @@ html { scroll-behavior: smooth; }
   margin-top: 96px;
   padding-top: 24px;
   border-top: 1px solid #e4e4e4;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: 400;
 }
 .pf-pager a:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -573,7 +587,7 @@ html { scroll-behavior: smooth; }
     margin: 0;
     opacity: 1;
   }
-  :root { --gutter: 8px; }
+  :root { --gutter: 8px; --margem: 18px; }
   /* topbar no celular: logo à esquerda e botão de menu (hambúrguer) à direita */
   /* a barra é a mesma do início ao fim: fica fixa no topo, sem troca */
   .site-header,
@@ -582,7 +596,7 @@ html { scroll-behavior: smooth; }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px var(--gutter);   /* mesma margem lateral do conteúdo */
+    padding: 16px var(--margem);   /* mesma margem lateral do conteúdo */
     text-align: left;
   }
   .site-header .logo, .nav-toggle { position: relative; z-index: 2; }
@@ -660,6 +674,7 @@ html { scroll-behavior: smooth; }
   .page-title + .prints { margin-top: 28px; }
   .page-title + .prints-notas { margin-top: 24px; }
   .prints-notas + .prints { margin-top: 32px; }
+  .prints-notas { text-align: left; }
   .page-title + .sobre { margin-top: 28px; }
   .pf .page-title { margin: 0 0 10px; }
   .prints { margin-top: 40px; grid-template-columns: 1fr; }
@@ -675,8 +690,8 @@ html { scroll-behavior: smooth; }
   .pf-nav {
     top: var(--bar-h, 60px);
     z-index: 10;
-    margin: 0 calc(-1 * var(--gutter));
-    padding: 10px var(--gutter);
+    margin: 0 calc(-1 * var(--margem));
+    padding: 10px var(--margem);
     background: var(--bg);
     overflow-x: auto;
     scrollbar-width: none;
@@ -688,7 +703,7 @@ html { scroll-behavior: smooth; }
   .pf-nav ul ul { display: none; }
   .pf-section, .pf-sub { scroll-margin-top: calc(var(--bar-h, 60px) + 56px); }
   .pf-section:first-of-type { margin-top: 24px; }
-  .pf-pager { margin-top: 64px; }
+  .pf-pager { margin-top: 64px; font-size: 22px; }
   .pf h2 { font-size: 24px; margin-bottom: 20px; }
   .pf-text { font-size: 17px; }
   .pf-film { grid-template-columns: 1fr; gap: 14px; }

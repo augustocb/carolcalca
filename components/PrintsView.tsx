@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { useTina, tinaField } from "tinacms/dist/react";
+import Rodape from "@/components/Rodape";
 import SiteHeader from "./SiteHeader";
 import RichText from "./RichText";
 import Lightbox, { type Zoom } from "./Lightbox";
@@ -111,6 +112,7 @@ export default function PrintsView(props: { data: any; query: string; variables:
           ))}
         </section>
       </main>
+      <Rodape />
       <Lightbox zoom={zoom} onClose={() => setZoom(null)} />
       {pedido && <PedidoModal foto={pedido} onClose={() => setPedido(null)} />}
     </>

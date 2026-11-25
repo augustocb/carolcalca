@@ -24,9 +24,10 @@ export default function PedidoModal({ foto, onClose }: { foto: any; onClose: () 
   const temTipo = foto.tipo !== "fineart";                        // fotográfica ou fine art
   const temMoldura = typeof foto.moldura === "number" && foto.moldura > 0;
 
-  // foco no primeiro campo, Esc fecha, e a página de trás não rola
+  // foco no primeiro campo (só com mouse: no celular e no tablet o teclado abriria sozinho),
+  // Esc fecha, e a página de trás não rola
   useEffect(() => {
-    primeiro.current?.focus();
+    if (matchMedia("(hover: hover) and (pointer: fine)").matches) primeiro.current?.focus();
     const k = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     document.addEventListener("keydown", k);
     const html = document.documentElement, antes = html.style.overflow;

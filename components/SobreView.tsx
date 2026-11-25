@@ -1,5 +1,6 @@
 "use client";
 import { useTina, tinaField } from "tinacms/dist/react";
+import Rodape from "@/components/Rodape";
 import SiteHeader from "./SiteHeader";
 import RichText from "./RichText";
 import { asset } from "@/lib/site";
@@ -22,6 +23,7 @@ export default function SobreView(props: { data: any; query: string; variables: 
           <a href={s.instagram} target="_blank" rel="noopener" data-tina-field={tinaField(s, "instagramTexto")}>{s.instagramTexto}</a>
         </section>
       </main>
+      <Rodape />
     </>
   );
 }

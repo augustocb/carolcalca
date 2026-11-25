@@ -49,17 +49,25 @@
     stop();
     const a = header.animate(
       [{ transform: 'none', opacity: 1 }, { transform: 'translateY(-100%)', opacity: 0 }],
-      { duration: 420, easing: 'cubic-bezier(.45, 0, .55, 1)', fill: 'forwards' }
+      { duration: 220, easing: 'cubic-bezier(.4, 0, 1, 1)', fill: 'forwards' }
     );
     running.push(a);
-    a.finished.then(() => { if (!compact) { header.classList.remove('compact'); a.cancel(); } }, () => {});
+    a.finished.then(() => {
+      if (compact) return;
+      header.classList.remove('compact');
+      a.cancel();
+      // a topbar normal volta com um leve fade
+      running = [header.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 400, easing: 'ease-out' })];
+    }, () => {});
   }
 
   // compacta no instante em que a topbar original sai inteira da tela (sem intervalo
   // vazio no topo); só abre de novo depois de voltar alguns pixels (evita piscar no limite)
+  // abrindo a página numa subseção, a rolagem até ela não é da pessoa: nada de animar
+  let abrindo = !!location.hash;
   function onScroll() {
-    if (!compact && scrollY >= openH) show(true);
-    else if (compact && scrollY < openH - 6) hide(true);
+    if (!compact && scrollY >= openH) show(!abrindo);
+    else if (compact && scrollY < openH - 6) hide(!abrindo);
   }
 
   // ---- menu hambúrguer (celular) ----
@@ -79,9 +87,21 @@
     addEventListener('pageshow', () => setMenu(false));  // voltar pelo navegador com o menu aberto
   }
 
+  // página aberta já numa subseção (ex.: portfolio-fotografia#moda): vai direto até ela e
+  // começa com a barra compacta, sem ela descer animada como se a pessoa tivesse rolado
+  if (location.hash) {
+    let alvo = null;
+    try { alvo = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (_) {}
+    if (alvo) alvo.scrollIntoView({ behavior: 'instant', block: 'start' });
+  }
+  // o React, ao assumir a página, reescreve a classe da topbar e apagaria o "compact"
+  new MutationObserver(() => {
+    if (compact && !header.classList.contains('compact')) header.classList.add('compact');
+  }).observe(header, { attributes: true, attributeFilter: ['class'] });
   measure();
   if (scrollY >= openH) show(false);
   addEventListener('scroll', onScroll, { passive: true });
+  if (abrindo) addEventListener('load', () => { onScroll(); setTimeout(() => { onScroll(); abrindo = false; }, 300); });
   addEventListener('resize', () => { measure(); onScroll(); });
   document.fonts && document.fonts.ready.then(measure);
 })();
