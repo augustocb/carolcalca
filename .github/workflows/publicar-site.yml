@@ -42,6 +42,9 @@ jobs:
       # o Tina deixa um .gitignore em admin/ que faria a publicação (via git) pular o painel
       - name: Incluir os arquivos do painel do Tina
         run: rm -f out/admin/.gitignore
+      # o painel não deve aparecer no Google
+      - name: Painel fora do Google
+        run: sed -i 's|<head>|<head><meta name="robots" content="noindex, nofollow">|' out/admin/index.html && grep -q noindex out/admin/index.html
       # substitui todo o conteúdo da gh-pages pelo site novo (o .nojekyll é criado
       # pela própria ação, para o GitHub Pages servir a pasta _next)
       - name: Publicar na gh-pages

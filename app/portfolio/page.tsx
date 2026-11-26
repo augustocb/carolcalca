@@ -1,7 +1,7 @@
 import PortfolioView from "@/components/PortfolioView";
-import { paginaDoPortfolio } from "@/lib/portfolio";
+import { paginaDoPortfolio, metadadosDoPortfolio } from "@/lib/portfolio";
 
-export const metadata = { title: "filmes · portfolio — Carol Calcavecchia" };
+export const generateMetadata = () => metadadosDoPortfolio("filmes");
 
 export default async function Page() {
   const { res, areas } = await paginaDoPortfolio("filmes");

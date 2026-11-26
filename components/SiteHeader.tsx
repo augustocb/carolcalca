@@ -5,7 +5,7 @@ const itens = [
   { href: "sobre", label: "sobre" },
 ];
 
-export default function SiteHeader({ atual }: { atual: "portfolio" | "prints" | "sobre" }) {
+export default function SiteHeader({ atual }: { atual?: "portfolio" | "prints" | "sobre" }) {
   return (
     <header className="site-header" suppressHydrationWarning>
       <a href="./" className="logo">Carol<b>Calcavecchia</b></a>

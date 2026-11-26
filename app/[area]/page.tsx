@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import PortfolioView from "@/components/PortfolioView";
-import { areasDoPortfolio, paginaDoPortfolio } from "@/lib/portfolio";
+import { areasDoPortfolio, paginaDoPortfolio, metadadosDoPortfolio } from "@/lib/portfolio";
 
 /* Páginas portfolio-<área> (fotografia, filmmaker, logger…), uma por arquivo em content/portfolio. */
 export const dynamicParams = false;
@@ -14,9 +14,7 @@ type Props = { params: Promise<{ area: string }> };
 
 export async function generateMetadata({ params }: Props) {
   const { area } = await params;
-  const areas = await areasDoPortfolio();
-  const a = areas.find((x) => `portfolio-${x.filename}` === area);
-  return { title: `${a?.menu ?? "portfolio"} · portfolio — Carol Calcavecchia` };
+  return metadadosDoPortfolio(area.replace(/^portfolio-/, ""));
 }
 
 export default async function Page({ params }: Props) {

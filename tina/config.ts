@@ -28,6 +28,24 @@ const rotuloComFoto = (imagem: string | undefined, texto: string): any =>
 const portfolioPath = (filename: string) =>
   filename === "filmes" ? "/portfolio" : `/portfolio-${filename}`;
 
+/** Título e descrição da página no Google e na prévia ao compartilhar o link (opcionais). */
+const seo = {
+  type: "object" as const,
+  name: "seo",
+  label: "Google e compartilhamento",
+  description: "Opcional. Vazio, o site usa um texto automático.",
+  fields: [
+    {
+      type: "string" as const, name: "titulo", label: "Título no Google",
+      description: "Aparece na aba do navegador e como título azul no Google. O nome Carol Calcavecchia é acrescentado no fim (exceto na capa).",
+    },
+    {
+      type: "string" as const, name: "descricao", label: "Descrição no Google", ui: { component: "textarea" },
+      description: "Uma ou duas frases sobre a página (até ~155 caracteres), mostradas abaixo do título no Google e no WhatsApp.",
+    },
+  ],
+};
+
 // ---------- blocos das páginas do portfolio ----------
 
 const texto: Template = {
@@ -154,6 +172,7 @@ export default defineConfig({
             type: "number", name: "intervalo", label: "Tempo de cada foto (segundos)",
             description: "Quanto tempo cada foto fica na tela antes de trocar. Sugestão: 6.",
           },
+          seo,
         ],
       },
       {
@@ -169,6 +188,7 @@ export default defineConfig({
           { type: "string", name: "email", label: "E-mail" },
           { type: "string", name: "instagram", label: "Link do Instagram" },
           { type: "string", name: "instagramTexto", label: "Texto do Instagram", description: "ex.: @carolina.calcavecchia" },
+          seo,
         ],
       },
       {
@@ -236,6 +256,7 @@ export default defineConfig({
               { type: "string", name: "nota", label: "Observação (opcional)" },
             ],
           },
+          seo,
         ],
       },
       {
@@ -249,6 +270,7 @@ export default defineConfig({
           { type: "string", name: "menu", label: "Nome no menu lateral" },
           { type: "number", name: "ordem", label: "Ordem no menu" },
           { type: "object", name: "blocos", label: "Conteúdo", list: true, templates: [texto, filmes, livros, galeria] },
+          seo,
         ],
       },
     ],
