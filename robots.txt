@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /admin/
+
+Host: https://carolcalcavecchia.com
+Sitemap: https://carolcalcavecchia.com/sitemap.xml

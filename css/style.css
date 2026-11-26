@@ -605,6 +605,13 @@ html { scroll-behavior: smooth; }
 .contato a:hover { text-decoration: underline; }
 @media (max-width: 1000px) { .bio { font-size: 17px; } }
 
+/* ---------- página não encontrada ---------- */
+.nao-encontrada { text-align: center; padding-bottom: 160px; }
+.site-header + main.nao-encontrada { padding-top: calc(var(--header-h, 94px) + 90px); }
+.nao-encontrada h1 { font-size: 28px; font-weight: 300; margin-bottom: 18px; }
+.nao-encontrada p { font-size: 18px; font-weight: 300; }
+.nao-encontrada a { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
 /* ---------- responsive ---------- */
 @media (max-width: 700px) {
   .prints .price { display: none; }
