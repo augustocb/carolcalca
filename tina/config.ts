@@ -1,4 +1,6 @@
+import { createElement as h } from "react";
 import { defineConfig, type Template } from "tinacms";
+import { versoesDaFoto } from "../lib/fotos";
 
 /*
  * O que a Carol consegue editar pelo painel do Tina (/admin).
@@ -7,6 +9,21 @@ import { defineConfig, type Template } from "tinacms";
 
 const branch =
   process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || "tina-cms";
+
+/**
+ * Rótulo de um item numa lista do painel com uma miniatura da foto ao lado do texto,
+ * para a Carol achar a foto sem abrir cada item. (O Tina tipa o rótulo como texto,
+ * mas mostra qualquer conteúdo.)
+ */
+const rotuloComFoto = (imagem: string | undefined, texto: string): any =>
+  h("span", { style: { display: "inline-flex", alignItems: "center", gap: 10 } },
+    imagem
+      // versão leve gerada para o site (a original pode ter vários MB); se não existir, a original
+      ? h("img", { src: versoesDaFoto(imagem).pequena, alt: "", loading: "lazy",
+          onError: (e: any) => { if (e.currentTarget.src !== imagem) e.currentTarget.src = imagem; },
+          style: { width: 44, height: 44, objectFit: "cover", flex: "none", borderRadius: 2, background: "#eee" } })
+      : h("span", { style: { width: 44, height: 44, flex: "none", background: "#eee", borderRadius: 2 } }),
+    h("span", null, texto));
 
 const portfolioPath = (filename: string) =>
   filename === "filmes" ? "/portfolio" : `/portfolio-${filename}`;
@@ -167,7 +184,7 @@ export default defineConfig({
             name: "fotos",
             label: "Fotos",
             list: true,
-            ui: { itemProps: (item) => ({ label: item?.titulo || item?.alt || "Foto" }) },
+            ui: { itemProps: (item) => ({ label: rotuloComFoto(item?.imagem, item?.titulo || item?.alt || "Foto") }) },
             fields: [
               { type: "image", name: "imagem", label: "Foto" },
               { type: "string", name: "alt", label: "Descrição (para leitores de tela)" },
