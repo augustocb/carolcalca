@@ -15,12 +15,14 @@ export default function SobreView(props: { data: any; query: string; variables: 
       <main>
         <h1 className="page-title">sobre</h1>
         <section className="sobre">
-          <div className="bio" data-tina-field={tinaField(s, "bio")}><RichText content={s.bio} /></div>
+          <div className="sobre-texto">
+            <div className="bio" data-tina-field={tinaField(s, "bio")}><RichText content={s.bio} /></div>
+            <div className="contato">
+              <a href={gmail} target="_blank" rel="noopener" data-tina-field={tinaField(s, "email")}>{s.email}</a>
+              <a href={s.instagram} target="_blank" rel="noopener" data-tina-field={tinaField(s, "instagramTexto")}>{s.instagramTexto}</a>
+            </div>
+          </div>
           <img className="retrato" src={asset(s.retrato)} alt={s.retratoAlt || ""} data-tina-field={tinaField(s, "retrato")} />
-        </section>
-        <section className="contato">
-          <a href={gmail} target="_blank" rel="noopener" data-tina-field={tinaField(s, "email")}>{s.email}</a>
-          <a href={s.instagram} target="_blank" rel="noopener" data-tina-field={tinaField(s, "instagramTexto")}>{s.instagramTexto}</a>
         </section>
       </main>
       <Rodape />
