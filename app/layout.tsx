@@ -8,6 +8,14 @@ const { alternates, ...padrao } = metadados({ titulo: "Carol Calcavecchia — fo
   descricao: "Portfolio e prints de Carolina Calcavecchia, fotógrafa e filmmaker no Rio de Janeiro." });
 export const metadata = { metadataBase: new URL(SITE), ...padrao, openGraph: { ...padrao.openGraph, url: undefined } };
 
+const ANALYTICS = `if (location.hostname === "carolcalcavecchia.com") {
+  var s = document.createElement("script");
+  s.defer = true;
+  s.src = "https://static.cloudflareinsights.com/beacon.min.js";
+  s.setAttribute("data-cf-beacon", '{"token": "e3d9592c3a5147a8ab8c4f4803d04b88"}');
+  document.head.appendChild(s);
+}`;
+
 /* suppressHydrationWarning: o topbar.js grava medidas no <html> antes do React assumir a página. */
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -24,6 +32,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* precisa rodar antes da página aparecer (transições entre páginas) */}
         <script src={asset("/js/transicao.js")}></script>
         <script src={asset("/js/topbar.js")} defer></script>
+        {/* estatísticas de visitas (Cloudflare Web Analytics: sem cookies). Só conta no domínio
+            do site, não nos testes locais; o painel do Tina (/admin) não usa este layout. */}
+        <script dangerouslySetInnerHTML={{ __html: ANALYTICS }} />
       </head>
       <body>{children}</body>
     </html>
