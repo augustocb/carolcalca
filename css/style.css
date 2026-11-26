@@ -563,32 +563,47 @@ html { scroll-behavior: smooth; }
 .pf-caption { margin-top: 0; }
 
 /* ---------- sobre ---------- */
+/* duas colunas: texto (com os contatos logo abaixo) à esquerda; a foto à direita, até a borda */
 .sobre {
-  max-width: 925px;
-  margin: 90px auto 0;
+  margin: 60px 0 100px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 348px);
-  gap: 60px;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(40px, 7vw, 110px);
   align-items: start;
 }
-.bio { font-size: 21px; line-height: 1.15; font-weight: 300; }
-.bio p + p { margin-top: 1.15em; }
+/* o texto ocupa a altura da foto e fica na mesma posição relativa em qualquer tela: do
+   espaço que sobra, 1 parte fica acima e 2,9 abaixo (como no layout de 1500 px) */
+.sobre-texto { max-width: 520px; justify-self: end; width: 100%; align-self: stretch; display: flex; flex-direction: column; }
+.sobre-texto::before { content: ""; flex: 1; }
+.sobre-texto::after { content: ""; flex: 2.9; }
+.bio { font-size: 20px; line-height: 1.25; font-weight: 300; }
+.bio p + p { margin-top: 1.25em; }
 .bio a { font-weight: 400; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 .bio a:hover { text-decoration-thickness: 2px; }
-.retrato { width: 100%; height: auto; }
+.retrato { width: 100%; height: auto; display: block; }
+/* desktop: a foto encosta na borda direita da janela (passa a margem e, em telas além
+   da largura máxima do site, também a sobra lateral); a coluna cresce na mesma medida */
+@media (min-width: 701px) {
+  .sobre .retrato {
+    --sangria: calc(var(--margem) + max(0px, (100vw - var(--largura-site)) / 2));
+    width: calc(100% + var(--sangria));
+    max-width: none;
+  }
+  html { overflow-x: clip; }
+}
 
 /* ---------- contato ---------- */
 .contato {
-  margin: 90px auto 120px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 400;
+  margin-top: 56px;
+  font-size: 18px;
+  font-weight: 300;
   display: flex;
   flex-direction: column;
-  align-items: center;   /* cada link só da largura do texto, não da tela toda */
-  gap: 12px;
+  align-items: flex-start;   /* cada link só da largura do texto */
+  gap: 24px;
 }
 .contato a:hover { text-decoration: underline; }
+@media (max-width: 1000px) { .bio { font-size: 17px; } }
 
 /* ---------- responsive ---------- */
 @media (max-width: 700px) {
@@ -697,9 +712,11 @@ html { scroll-behavior: smooth; }
   .prints > * { grid-column: 1 / -1; }
   .dot { display: none; }
   /* sobre no celular: texto e foto empilhados */
-  .sobre { grid-template-columns: 1fr; gap: 32px; margin-top: 40px; }
+  .sobre { grid-template-columns: 1fr; gap: 48px; margin: 40px 0 64px; }
+  .sobre-texto { max-width: none; justify-self: stretch; }
+  .sobre-texto::before, .sobre-texto::after { display: none; }
   .bio { font-size: 18px; }
-  .contato { margin: 56px auto 80px; }
+  .contato { margin-top: 40px; }
   /* portfolio no celular: menu vira uma faixa que rola de lado, presa no topo */
   .pf { grid-template-columns: 1fr; gap: 0; padding-bottom: 80px; }
   .site-header + main.pf { padding-top: calc(var(--header-h, 94px) + 24px); }
