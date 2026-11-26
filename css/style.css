@@ -132,6 +132,8 @@ img { display: block; max-width: 100%; }
   text-align: center;
   overflow: hidden;
   background: #222;
+  padding-bottom: 14vh;     /* título e subtítulo um pouco acima do centro, equilibrando com o menu embaixo */
+  padding-bottom: 14svh;
 }
 /* prévia minúscula e desfocada, enquanto a foto da capa carrega */
 .home::before {
@@ -144,15 +146,20 @@ img { display: block; max-width: 100%; }
 }
 /* a foto da capa (versões leves geradas por tools/capa.mjs): aparece assim que carrega,
    por cima da prévia (sem esperar o JavaScript da página) */
-.home > .home-capa {
+.home > .home-capas { position: absolute; inset: 0; z-index: 0; isolation: isolate; }
+.home-capa {
   position: absolute;
   inset: 0;
-  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1);
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;     /* troca entre as fotos (igual ao FADE do HomeView) */
 }
+/* a nova foto aparece por cima da anterior, que fica inteira por baixo até o fim do fade */
+.home-capa.pb { filter: grayscale(1); }   /* a foto principal; as outras têm as cores originais */
+.home-capa.ativa { opacity: 1; z-index: 2; }
+.home-capa.anterior { opacity: 1; z-index: 1; transition: none; }
 .home::after {
   content: "";
   position: absolute;
@@ -161,6 +168,8 @@ img { display: block; max-width: 100%; }
   z-index: 0;
 }
 .home > * { position: relative; z-index: 1; }
+/* textos da capa com 75% de opacidade (o menu volta a 100% no hover) */
+.home .logo, .home .tagline { opacity: .75; }
 .home .logo { font-size: clamp(30px, 5.2vw, 80px); line-height: 1; }
 .home .tagline {
   font-size: clamp(18px, 2.6vw, 40px);
@@ -181,7 +190,7 @@ img { display: block; max-width: 100%; }
   border-bottom: 6px solid #fff;
   padding-bottom: .1em;
 }
-.home .menu a { opacity: .9; transition: opacity .5s ease, transform .6s cubic-bezier(.33, 0, .2, 1); }
+.home .menu a { opacity: .75; transition: opacity .5s ease, transform .6s cubic-bezier(.33, 0, .2, 1); }
 .home .menu a:hover { opacity: 1; transform: translateY(-3px); }
 @media (prefers-reduced-motion: reduce) { .home .menu a:hover { transform: none; } }
 
