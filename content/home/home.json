@@ -1,4 +1,13 @@
 {
   "tagline": "fotógrafa e filmmaker",
-  "capa": "/images/hero.webp"
+  "capa": "/images/hero.webp",
+  "outrasCapas": [
+    "/images/capa-mar.webp",
+    "/images/capa-mata.webp",
+    "/images/capa-ceu.webp",
+    "/images/capa-areia.webp",
+    "/images/capa-cachoeira.webp",
+    "/images/capa-casa.webp"
+  ],
+  "intervalo": 6
 }

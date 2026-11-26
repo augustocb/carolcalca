@@ -129,6 +129,14 @@ export default defineConfig({
         fields: [
           { type: "string", name: "tagline", label: "Frase abaixo do nome" },
           { type: "image", name: "capa", label: "Foto da capa", description: "Aparece em preto e branco." },
+          {
+            type: "image", name: "outrasCapas", label: "Outras fotos da capa", list: true,
+            description: "Alternam com a foto da capa, num fade. Aparecem com as cores originais.",
+          },
+          {
+            type: "number", name: "intervalo", label: "Tempo de cada foto (segundos)",
+            description: "Quanto tempo cada foto fica na tela antes de trocar. Sugestão: 6.",
+          },
         ],
       },
       {

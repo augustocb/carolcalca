@@ -2,26 +2,26 @@ import gerada from "./capa-gerada.json";
 import { asset } from "./site";
 
 /*
- * Versões leves da capa geradas por tools/capa.mjs (preto e branco, 800/1200/1600 px, e uma prévia
- * desfocada). Só valem se forem da mesma foto escolhida no Tina; se a Carol acabou de trocar a capa
- * no painel (e ainda não houve nova publicação), usa a foto original.
+ * Versões leves das fotos da capa geradas por tools/capa.mjs (preto e branco, 800/1200/1600 px,
+ * e uma prévia desfocada da primeira). Se a Carol acabou de trocar uma foto no painel (e ainda
+ * não houve nova publicação), usa a foto original.
  */
-type Gerada = { fonte: string | null; versoes?: { src: string; largura: number }[]; previa?: string };
+type Versao = { src: string; largura: number };
+type Gerada = { capas?: { fonte: string; versoes: Versao[]; previa?: string }[] };
 const g = gerada as Gerada;
 
 export type Capa = { src: string; srcSet?: string; previa?: string };
 
 export function capaDoSite(capa: string): Capa {
-  // no site publicado, o Tina entrega a foto pela URL do CDN dele (…/__file/hero.webp);
+  // no site publicado, o Tina entrega a foto pela URL do CDN dele (…/hero.webp);
   // compara pelo caminho dentro de images/ (ex.: "/hero.webp")
-  const relativo = g.fonte?.replace(/^\/images/, "");
-  const mesma = !!relativo && (capa === g.fonte || capa.endsWith(relativo));
-  if (!mesma || !g.versoes?.length) return { src: asset(capa) };
-  const maior = g.versoes[g.versoes.length - 1];
-  const media = g.versoes.find((v) => v.largura >= 1200) || maior;
+  const achada = (g.capas || []).find((c) => capa === c.fonte || capa.endsWith(c.fonte.replace(/^\/images/, "")));
+  if (!achada?.versoes.length) return { src: asset(capa) };
+  const maior = achada.versoes[achada.versoes.length - 1];
+  const media = achada.versoes.find((v) => v.largura >= 1200) || maior;
   return {
     src: asset(media.src),
-    srcSet: g.versoes.map((v) => `${asset(v.src)} ${v.largura}w`).join(", "),
-    previa: g.previa,
+    srcSet: achada.versoes.map((v) => `${asset(v.src)} ${v.largura}w`).join(", "),
+    previa: achada.previa,
   };
 }
